@@ -1,6 +1,8 @@
-void setup() {
-  int pinlec = 22;
+ int pinlec = 22;
 int val;
+
+void setup() {
+ 
 
 pinMode(pinlec, INPUT);
 Serial.begin(9600);
@@ -8,10 +10,10 @@ Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-//val = digitalRead(pinlec);
-val = 5;
-//Serial.println("hola");
+
+val = digitalRead(pinlec);
+
+Serial.println(val);
 
 delay(400);
 }

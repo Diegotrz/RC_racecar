@@ -1,4 +1,4 @@
-# 1 "Masterpic.c"
+# 1 "HC89_prueba.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,11 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Masterpic.c" 2
+# 1 "HC89_prueba.c" 2
+# 14 "HC89_prueba.c"
+#pragma config FOSC = INTRC_CLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
 
 
-
-
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
 
 
 
@@ -2632,9 +2643,107 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 2 3
-# 9 "Masterpic.c" 2
+# 31 "HC89_prueba.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdint.h" 1 3
+# 32 "HC89_prueba.c" 2
 
 
-void main(void) {
-    return;
+
+
+
+
+
+int a= 0;
+int b= 0;
+
+
+
+void setup(void);
+
+
+
+
+void __attribute__((picinterrupt(("")))) isr (void)
+{
+    if (INTCONbits.RBIF ){
+
+
+        __nop();
+    }
+    if (INTCONbits.T0IF){
+        if (b<=31){
+           b ++;
+        }
+
+        if (b==31){
+            a ++;
+            PORTA = a;
+            b= 0;
+        }
+        INTCONbits.T0IF = 0;
+        TMR0 = 0;
+
+    }
+}
+
+
+
+void main (void)
+{
+    setup();
+    while(1)
+    {
+        if (!PORTBbits.RB0){
+            while (!RB0);
+                a ++;
+                PORTC= a;
+        }
+    if (!PORTBbits.RB1){
+            while (!RB1) ;
+                a --;
+                PORTC= a;
+
+        }
+
+
+    }
+
+
+
+}
+
+
+
+void setup(void){
+    ANSEL = 0b00000011;
+    ANSELH = 0;
+    TRISA = 0;
+    TRISC = 0;
+    TRISB = 0b11111111;
+
+    OPTION_REGbits.nRBPU = 0;
+    WPUB = 0b11111111;
+    PORTC = 0;
+    PORTA = 0;
+
+    OSCCONbits.IRCF = 0b0111;
+    OSCCONbits.SCS = 1;
+
+OPTION_REGbits.T0CS = 0;
+OPTION_REGbits.T0SE = 0;
+OPTION_REGbits.PSA = 0;
+OPTION_REGbits.PS2 = 1;
+OPTION_REGbits.PS1 = 1;
+OPTION_REGbits.PS0 = 1;
+TMR0 = 0;
+
+
+
+
+    INTCONbits.T0IF = 0;
+    INTCONbits.T0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+
 }
