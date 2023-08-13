@@ -16,11 +16,11 @@
 #endif
 
 #ifndef RS
-#define RS PORTCbits.RC6
+#define RS PORTDbits.RD2
 #endif
 
 #ifndef EN
-#define EN RC7
+#define EN RD3
 #endif
 
 #ifndef D4

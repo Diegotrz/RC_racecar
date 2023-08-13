@@ -31,13 +31,15 @@
 #include <xc.h>
 #include <stdint.h>
 #include <pic16f887.h>
-
+#include "LCD.h"
+#include "stdio.h"
 
 /*
  *Variables
  */
-int a= 0;
+uint8_t a= 0;
 int b= 0;
+int rpm= 0;
 /*
  * Prototipos de funciones
  */
@@ -54,14 +56,18 @@ void __interrupt() isr (void)
         NOP();
     }
     if (INTCONbits.T0IF){
-        if (b<=31){
+        //b==31 para un segundo
+        // b == 305 para 10 segundos
+        if (b<=305){
            b ++;           
         }
         
-        if (b==31){
-            a ++; 
-            PORTA = a;
-            b= 0;             
+        if (b==305){
+            rpm = a/2;
+            PORTA = rpm;
+            a= 0;
+            b= 0;
+            
         }
         INTCONbits.T0IF = 0;
         TMR0 = 0;
@@ -73,21 +79,29 @@ void __interrupt() isr (void)
  */
 void main (void)
 {
+    
     setup(); //Mandamos a llamar la función del setup
+    Lcd_Init();
     while(1)
     {
         if (!PORTBbits.RB0){ //Verifica si la interrupción del puerto RB0 ha cambiado
             while (!RB0);
                 a ++;  
-                PORTC= a;
+               
         }
     if (!PORTBbits.RB1){
             while (!RB1) ;
                 a --; 
-                PORTC= a;
+                
                          
         }
         
+        char s[20];
+        
+        Lcd_Set_Cursor(1,1);
+        sprintf(s, "%u", rpm);
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String(s);
         
     }
     
@@ -101,13 +115,16 @@ void setup(void){
     ANSEL = 0b00000011;
     ANSELH = 0;
     TRISA = 0;
-    TRISC = 0;
+   
     TRISB = 0b11111111;
-    
+    TRISD= 0;
     OPTION_REGbits.nRBPU =  0;
     WPUB = 0b11111111;
-    PORTC = 0;
+    TRISC6 = 0;
+    TRISC7 = 0;
     PORTA = 0;
+    PORTD = 0;
+    PORTC = 0;
     // Configuración del oscilador
     OSCCONbits.IRCF =   0b0111; //8MHz
     OSCCONbits.SCS = 1;

@@ -2676,11 +2676,11 @@ void Lcd_Port(char a) {
 }
 
 void Lcd_Cmd(char a) {
-    PORTCbits.RC6 = 0;
+    PORTDbits.RD2 = 0;
     Lcd_Port(a);
-    RC7 = 1;
+    RD3 = 1;
     _delay((unsigned long)((4)*(8000000/4000.0)));
-    RC7 = 0;
+    RD3 = 0;
 }
 
 void Lcd_Clear(void) {
@@ -2727,15 +2727,15 @@ void Lcd_Write_Char(char a) {
     char temp, y;
     temp = a & 0x0F;
     y = a & 0xF0;
-    PORTCbits.RC6 = 1;
+    PORTDbits.RD2 = 1;
     Lcd_Port(y >> 4);
-    RC7 = 1;
+    RD3 = 1;
     _delay((unsigned long)((40)*(8000000/4000000.0)));
-    RC7 = 0;
+    RD3 = 0;
     Lcd_Port(temp);
-    RC7 = 1;
+    RD3 = 1;
     _delay((unsigned long)((40)*(8000000/4000000.0)));
-    RC7 = 0;
+    RD3 = 0;
 }
 
 void Lcd_Write_String(char *a) {

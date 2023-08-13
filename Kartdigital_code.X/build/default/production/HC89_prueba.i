@@ -2649,13 +2649,133 @@ extern __bank0 __bit __timeout;
 # 32 "HC89_prueba.c" 2
 
 
+# 1 "./LCD.h" 1
+# 47 "./LCD.h"
+void Lcd_Port(char a);
+
+void Lcd_Cmd(char a);
+
+void Lcd_Clear(void);
+
+void Lcd_Set_Cursor(char a, char b);
+
+void Lcd_Init(void);
+
+void Lcd_Write_Char(char a);
+
+void Lcd_Write_String(char *a);
+
+void Lcd_Shift_Right(void);
+
+void Lcd_Shift_Left(void);
+# 34 "HC89_prueba.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
 
 
 
 
 
-int a= 0;
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 35 "HC89_prueba.c" 2
+
+
+
+
+
+uint8_t a= 0;
 int b= 0;
+int rpm= 0;
 
 
 
@@ -2672,14 +2792,18 @@ void __attribute__((picinterrupt(("")))) isr (void)
         __nop();
     }
     if (INTCONbits.T0IF){
-        if (b<=31){
+
+
+        if (b<=305){
            b ++;
         }
 
-        if (b==31){
-            a ++;
-            PORTA = a;
+        if (b==305){
+            rpm = a/2;
+            PORTA = rpm;
+            a= 0;
             b= 0;
+
         }
         INTCONbits.T0IF = 0;
         TMR0 = 0;
@@ -2691,21 +2815,29 @@ void __attribute__((picinterrupt(("")))) isr (void)
 
 void main (void)
 {
+
     setup();
+    Lcd_Init();
     while(1)
     {
         if (!PORTBbits.RB0){
             while (!RB0);
                 a ++;
-                PORTC= a;
+
         }
     if (!PORTBbits.RB1){
             while (!RB1) ;
                 a --;
-                PORTC= a;
+
 
         }
 
+        char s[20];
+
+        Lcd_Set_Cursor(1,1);
+        sprintf(s, "%u", rpm);
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String(s);
 
     }
 
@@ -2719,13 +2851,16 @@ void setup(void){
     ANSEL = 0b00000011;
     ANSELH = 0;
     TRISA = 0;
-    TRISC = 0;
-    TRISB = 0b11111111;
 
+    TRISB = 0b11111111;
+    TRISD= 0;
     OPTION_REGbits.nRBPU = 0;
     WPUB = 0b11111111;
-    PORTC = 0;
+    TRISC6 = 0;
+    TRISC7 = 0;
     PORTA = 0;
+    PORTD = 0;
+    PORTC = 0;
 
     OSCCONbits.IRCF = 0b0111;
     OSCCONbits.SCS = 1;
