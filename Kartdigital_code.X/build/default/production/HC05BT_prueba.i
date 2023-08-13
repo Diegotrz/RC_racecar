@@ -1,4 +1,4 @@
-# 1 "I2C.c"
+# 1 "HC05BT_prueba.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,31 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "I2C.c" 2
-# 12 "I2C.c"
-# 1 "./I2C.h" 1
-# 18 "./I2C.h"
+# 1 "HC05BT_prueba.c" 2
+
+
+
+
+
+
+#pragma config FOSC = INTRC_CLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = ON
+#pragma config LVP = ON
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2632,62 +2653,51 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 2 3
-# 18 "./I2C.h" 2
-
+# 24 "HC05BT_prueba.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
+# 25 "HC05BT_prueba.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
 
 
 
 
 
 
+typedef void * va_list[1];
 
-void I2C_Master_Wait(void);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 12 "I2C.c" 2
-
-
-
-
-void I2C_Master_Init(const unsigned long c)
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
 {
-    SSPCON = 0b00101000;
-    SSPCON2 = 0;
-    SSPADD = (8000000/(4*c))-1;
-    SSPSTAT = 0;
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC4 = 1;
-}
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
 
 
 
@@ -2695,77 +2705,239 @@ void I2C_Master_Init(const unsigned long c)
 
 
 
-void I2C_Master_Wait()
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 26 "HC05BT_prueba.c" 2
+
+# 1 "./USARTmodl.h" 1
+# 11 "./USARTmodl.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./USARTmodl.h" 2
+
+
+
+const char message[] = "2.Enviar Ascii" ;
+void UART_Init(const uint32_t baud_rate);
+__bit UART_Data_Ready();
+uint8_t UART_GetC();
+void UART_PutC(const char data);
+void UART_Print(const char *data);
+void UART_maininit ();
+# 27 "HC05BT_prueba.c" 2
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\string.h" 1 3
+# 14 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\string.h" 3
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 29 "HC05BT_prueba.c" 2
+
+char valpot;
+uint16_t map(uint16_t varmap,uint16_t minval,uint16_t maxval, uint16_t minsal, uint16_t maxsal);
+uint16_t a =0;
+
+void __attribute__((picinterrupt(("")))) isr (void)
 {
-    while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
-}
+    if(PIR1bits.ADIF){
+
+         if (ADCON0bits.CHS ==0)
+          valpot = ADRESH;
+         PIR1bits.ADIF =0;
 
 
 
-void I2C_Master_Start()
-{
-    I2C_Master_Wait();
-    SSPCON2bits.SEN = 1;
-}
-
-
-
-void I2C_Master_RepeatedStart()
-{
-    I2C_Master_Wait();
-    SSPCON2bits.RSEN = 1;
-}
-
-
-
-void I2C_Master_Stop()
-{
-    I2C_Master_Wait();
-    SSPCON2bits.PEN = 1;
-}
-
-
-
-
-
-void I2C_Master_Write(unsigned d)
-{
-    I2C_Master_Wait();
-    SSPBUF = d;
-}
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a)
-{
-    unsigned short temp;
-    I2C_Master_Wait();
-    SSPCON2bits.RCEN = 1;
-    I2C_Master_Wait();
-    temp = SSPBUF;
-    I2C_Master_Wait();
-    if(a == 1){
-        SSPCON2bits.ACKDT = 0;
-    }else{
-        SSPCON2bits.ACKDT = 1;
     }
-    SSPCON2bits.ACKEN = 1;
-    return temp;
+
 }
+void setup(void);
+void preguntas (void);
 
+ char uart_read(){
+ if(PIR1bits.RCIF== 0){
+     if (RCSTAbits.OERR){
+         RCSTAbits.CREN =0;
+         __nop();
+         RCSTAbits.CREN =1;
+ }
+     return RCREG;
+ }
+ else
+     return 0;
+ }
 
-
-void I2C_Slave_Init(uint8_t address)
+void main(void)
 {
-    SSPADD = address;
-    SSPCON = 0x36;
-    SSPSTAT = 0x80;
-    SSPCON2 = 0x01;
-    TRISC3 = 1;
-    TRISC4 = 1;
-    GIE = 1;
-    PEIE = 1;
-    SSPIF = 0;
-    SSPIE = 1;
+    setup();
+  OSCCON = 0x70;
+
+  UART_Init(9600);
+
+  _delay((unsigned long)((2000)*(8000000/4000.0)));
+
+  UART_Print("1.Leer potenciometro\r\n");
+
+  _delay((unsigned long)((1000)*(8000000/4000.0)));
+
+  UART_Print(message);
+
+  _delay((unsigned long)((1000)*(8000000/4000.0)));
+
+  UART_Print("\r\n");
+ ADCON0bits.GO =1;
+ char text[9];
+  while(1)
+  {
+       if (ADCON0bits.GO ==0)
+     ADCON0bits.GO =1;
+# 100 "HC05BT_prueba.c"
+       a ++;
+       PORTD = a;
+       _delay((unsigned long)((700)*(8000000/4000.0)));
+       UART_Print ("\r\n");
+            sprintf(text, "%03u\r\n", a);
+             UART_Print(text);
+      switch (uart_read()){
+          case '1':
+
+
+
+               valpot = ADRESH;
+              uint16_t varvolt2 = map(valpot,0,255,0,5);
+
+              UART_Print ("\r\n");
+            sprintf(text, "%03u\r\n", varvolt2);
+            UART_Print(text);
+
+
+              preguntas();
+             RCREG ='0';
+
+             break;
+           case '+':
+               _delay((unsigned long)((2000)*(8000000/4000000.0)));
+               PORTD ++;
+               RCREG ='0';
+
+               break;
+                 case '-':
+               _delay((unsigned long)((2000)*(8000000/4000000.0)));
+               PORTD --;
+               RCREG ='0';
+
+               break;
+
+      }
+
+    if ( UART_Data_Ready() )
+    {
+      uint8_t c = UART_GetC();
+      UART_PutC(c);
+    }
+
+  }
+
+}
+void setup(void){
+    ANSEL = 0b00000011;
+    ANSELH = 0;
+
+    TRISA = 0xFF;
+    TRISD= 0;
+    PORTD = 0;
+
+
+    ADCON1bits.ADFM = 0;
+    ADCON1bits.VCFG0 = 0;
+    ADCON1bits.VCFG1 = 0;
+
+    ADCON0bits.ADCS = 0b01;
+    ADCON0bits.CHS = 0;
+    ADCON0bits.ADON= 1;
+    _delay((unsigned long)((50)*(8000000/4000000.0)));
+
+    PIR1bits.ADIF = 0;
+    PIE1bits.ADIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+
+}
+void preguntas(void)
+{
+    UART_Print ("1.Leer potenciometro\r\n");
+    UART_Print (message);
+}
+uint16_t map(uint16_t varmap,uint16_t minval,uint16_t maxval, uint16_t minsal, uint16_t maxsal){
+  float valmap =((varmap - minval) * (maxsal - minsal)) / (maxval - minval) + minsal;
+  return valmap;
 }

@@ -1,4 +1,4 @@
-# 1 "I2C.c"
+# 1 "USARTmodl.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "I2C.c" 2
-# 12 "I2C.c"
-# 1 "./I2C.h" 1
-# 18 "./I2C.h"
+# 1 "USARTmodl.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2632,140 +2637,177 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 2 3
-# 18 "./I2C.h" 2
-
+# 9 "USARTmodl.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
+# 10 "USARTmodl.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
 
 
 
 
 
 
+typedef void * va_list[1];
 
-void I2C_Master_Wait(void);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 12 "I2C.c" 2
-
-
-
-
-void I2C_Master_Init(const unsigned long c)
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
 {
-    SSPCON = 0b00101000;
-    SSPCON2 = 0;
-    SSPADD = (8000000/(4*c))-1;
-    SSPSTAT = 0;
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC4 = 1;
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 11 "USARTmodl.c" 2
+
+# 1 "./USARTmodl.h" 1
+# 11 "./USARTmodl.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./USARTmodl.h" 2
+
+
+
+const char message[] = "2.Enviar Ascii" ;
+void UART_Init(const uint32_t baud_rate);
+__bit UART_Data_Ready();
+uint8_t UART_GetC();
+void UART_PutC(const char data);
+void UART_Print(const char *data);
+void UART_maininit ();
+# 12 "USARTmodl.c" 2
+
+
+void UART_Init(const uint32_t baud_rate)
+{
+  int16_t n = ( 8000000 / (16 * baud_rate) ) - 1;
+
+  if (n < 0)
+    n = 0;
+
+  if (n > 255)
+  {
+    n = ( 8000000 / (64 * baud_rate) ) - 1;
+    if (n > 255)
+      n = 255;
+    SPBRG = n;
+    TXSTA = 0x20;
+  }
+
+  else
+  {
+    SPBRG = n;
+    TXSTA = 0x24;
+  }
+
+  RCSTA = 0x90;
+
+}
+
+
+__bit UART_Data_Ready()
+{
+  return RCIF;
+}
+
+uint8_t UART_GetC()
+{
+  while (RCIF == 0) ;
+  if (OERR)
+  {
+    CREN = 0;
+    CREN = 1;
+  }
+  return RCREG;
 }
 
 
 
-
-
-
-
-void I2C_Master_Wait()
+void UART_PutC(const char data)
 {
-    while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+  while (TRMT == 0);
+  TXREG = data;
 }
 
-
-
-void I2C_Master_Start()
+void UART_Print(const char *data)
 {
-    I2C_Master_Wait();
-    SSPCON2bits.SEN = 1;
-}
-
-
-
-void I2C_Master_RepeatedStart()
-{
-    I2C_Master_Wait();
-    SSPCON2bits.RSEN = 1;
-}
-
-
-
-void I2C_Master_Stop()
-{
-    I2C_Master_Wait();
-    SSPCON2bits.PEN = 1;
-}
-
-
-
-
-
-void I2C_Master_Write(unsigned d)
-{
-    I2C_Master_Wait();
-    SSPBUF = d;
-}
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a)
-{
-    unsigned short temp;
-    I2C_Master_Wait();
-    SSPCON2bits.RCEN = 1;
-    I2C_Master_Wait();
-    temp = SSPBUF;
-    I2C_Master_Wait();
-    if(a == 1){
-        SSPCON2bits.ACKDT = 0;
-    }else{
-        SSPCON2bits.ACKDT = 1;
-    }
-    SSPCON2bits.ACKEN = 1;
-    return temp;
-}
-
-
-
-void I2C_Slave_Init(uint8_t address)
-{
-    SSPADD = address;
-    SSPCON = 0x36;
-    SSPSTAT = 0x80;
-    SSPCON2 = 0x01;
-    TRISC3 = 1;
-    TRISC4 = 1;
-    GIE = 1;
-    PEIE = 1;
-    SSPIF = 0;
-    SSPIE = 1;
+  uint8_t i = 0;
+  while (data[i] != '\0')
+    UART_PutC (data[i++]);
 }
