@@ -103,6 +103,7 @@ void main(void)
        UART_Print ("\r\n");
             sprintf(text, "%03u\r\n", a);
              UART_Print(text);
+             __delay_ms(700);
       switch (uart_read()){
           case '1': 
               

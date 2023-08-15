@@ -2867,6 +2867,7 @@ void main(void)
        UART_Print ("\r\n");
             sprintf(text, "%03u\r\n", a);
              UART_Print(text);
+             _delay((unsigned long)((700)*(8000000/4000.0)));
       switch (uart_read()){
           case '1':
 
