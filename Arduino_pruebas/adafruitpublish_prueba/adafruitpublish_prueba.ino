@@ -48,7 +48,7 @@ void setup() {
   }
 
   // we are connected
-  pinMode(pot,INPUT);
+  //pinMode(pot,INPUT);
   Serial.println();
   Serial.println(io.statusText());
 
@@ -56,11 +56,12 @@ void setup() {
 
 void loop() {
 
-  // io.run(); is required for all sketches.
+  //io.run(); //is required for all sketches.
   // it should always be present at the top of your loop
   // function. it keeps the client connected to
   // io.adafruit.com, and processes any incoming data.
-   valpot = analogRead(pot);  
+   
+  valpot = analogRead(pot);  
 
   mapot = map(valpot,0,4095,0,255);
  io.run();
@@ -71,6 +72,7 @@ void loop() {
   Serial.print("sending -> ");
   Serial.println(mapot);
  counter->save(mapot);
+ 
  delay(3000);
  
 
