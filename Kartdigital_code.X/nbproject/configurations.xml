@@ -74,6 +74,8 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="HC05BT_prueba.c" ex="true" overriding="false">
+      </item>
       <item path="HC89_prueba.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>

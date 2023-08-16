@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=I2C.c LCD.c HC05BT_prueba.c USARTmodl.c
+SOURCEFILES_QUOTED_IF_SPACED=I2C.c LCD.c USARTmodl.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/HC05BT_prueba.p1 ${OBJECTDIR}/USARTmodl.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/I2C.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/HC05BT_prueba.p1.d ${OBJECTDIR}/USARTmodl.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/I2C.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/USARTmodl.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/HC05BT_prueba.p1 ${OBJECTDIR}/USARTmodl.p1
+OBJECTFILES=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1
 
 # Source Files
-SOURCEFILES=I2C.c LCD.c HC05BT_prueba.c USARTmodl.c
+SOURCEFILES=I2C.c LCD.c USARTmodl.c
 
 
 
@@ -104,14 +104,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/HC05BT_prueba.p1: HC05BT_prueba.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/HC05BT_prueba.p1.d 
-	@${RM} ${OBJECTDIR}/HC05BT_prueba.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/HC05BT_prueba.p1 HC05BT_prueba.c 
-	@-${MV} ${OBJECTDIR}/HC05BT_prueba.d ${OBJECTDIR}/HC05BT_prueba.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/HC05BT_prueba.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/USARTmodl.p1: USARTmodl.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/USARTmodl.p1.d 
@@ -136,14 +128,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LCD.p1 LCD.c 
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/HC05BT_prueba.p1: HC05BT_prueba.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/HC05BT_prueba.p1.d 
-	@${RM} ${OBJECTDIR}/HC05BT_prueba.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/HC05BT_prueba.p1 HC05BT_prueba.c 
-	@-${MV} ${OBJECTDIR}/HC05BT_prueba.d ${OBJECTDIR}/HC05BT_prueba.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/HC05BT_prueba.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/USARTmodl.p1: USARTmodl.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
