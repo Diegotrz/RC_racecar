@@ -16,21 +16,21 @@
 // and any additional configuration needed for WiFi, cellular,
 // or ethernet clients.
 #include "config.h"
-#define pot 4
+#define HCR 0
 int valpot;
-int mapot =0;
+int STHCR =0;
 /************************ Example Starts Here *******************************/
 
 // this int will hold the current count for our sketch
 int count = 0;
 
 // set up the 'counter' feed
-AdafruitIO_Feed *counter = io.feed("rpm-llanta-derecha");
+AdafruitIO_Feed *counter = io.feed("acelerac");
 
 void setup() {
   
   // start the serial connection
-  Serial.begin(9600);
+  Serial.begin(115200);
 
 
   while(! Serial);
@@ -47,8 +47,7 @@ void setup() {
     delay(500);
   }
 
-  // we are connected
-  //pinMode(pot,INPUT);
+
   Serial.println();
   Serial.println(io.statusText());
 
@@ -61,18 +60,17 @@ void loop() {
   // function. it keeps the client connected to
   // io.adafruit.com, and processes any incoming data.
    
-  valpot = analogRead(pot);  
-
-  mapot = map(valpot,0,4095,0,255);
+ 
  io.run();
 
   // save count to the 'counter' feed on Adafruit IO
-
+ STHCR = digitalRead(HCR);  
+ 
   
   Serial.print("sending -> ");
-  Serial.println(mapot);
- counter->save(mapot);
- 
+  Serial.println(STHCR);
+ counter->save(STHCR);
+
  delay(3000);
  
 

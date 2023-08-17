@@ -1,4 +1,4 @@
-#define pot 4
+#define pot 0
 int valpot;
 int mapot =0;
 void setup() {
