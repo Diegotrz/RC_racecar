@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=I2C.c LCD.c USARTmodl.c
+SOURCEFILES_QUOTED_IF_SPACED=I2C.c LCD.c USARTmodl.c pruebamasterpic.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/I2C.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/USARTmodl.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1 ${OBJECTDIR}/pruebamasterpic.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/I2C.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/USARTmodl.p1.d ${OBJECTDIR}/pruebamasterpic.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1
+OBJECTFILES=${OBJECTDIR}/I2C.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/USARTmodl.p1 ${OBJECTDIR}/pruebamasterpic.p1
 
 # Source Files
-SOURCEFILES=I2C.c LCD.c USARTmodl.c
+SOURCEFILES=I2C.c LCD.c USARTmodl.c pruebamasterpic.c
 
 
 
@@ -112,6 +112,14 @@ ${OBJECTDIR}/USARTmodl.p1: USARTmodl.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/USARTmodl.d ${OBJECTDIR}/USARTmodl.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/USARTmodl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/pruebamasterpic.p1: pruebamasterpic.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/pruebamasterpic.p1.d 
+	@${RM} ${OBJECTDIR}/pruebamasterpic.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/pruebamasterpic.p1 pruebamasterpic.c 
+	@-${MV} ${OBJECTDIR}/pruebamasterpic.d ${OBJECTDIR}/pruebamasterpic.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/pruebamasterpic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/I2C.p1: I2C.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -136,6 +144,14 @@ ${OBJECTDIR}/USARTmodl.p1: USARTmodl.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/USARTmodl.p1 USARTmodl.c 
 	@-${MV} ${OBJECTDIR}/USARTmodl.d ${OBJECTDIR}/USARTmodl.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/USARTmodl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/pruebamasterpic.p1: pruebamasterpic.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/pruebamasterpic.p1.d 
+	@${RM} ${OBJECTDIR}/pruebamasterpic.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/pruebamasterpic.p1 pruebamasterpic.c 
+	@-${MV} ${OBJECTDIR}/pruebamasterpic.d ${OBJECTDIR}/pruebamasterpic.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/pruebamasterpic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

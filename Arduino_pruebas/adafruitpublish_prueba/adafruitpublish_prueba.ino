@@ -65,7 +65,7 @@ void loop() {
 
   // save count to the 'counter' feed on Adafruit IO
  STHCR = digitalRead(HCR);  
- 
+ // if (STHCR == 01)
   
   Serial.print("sending -> ");
   Serial.println(STHCR);
