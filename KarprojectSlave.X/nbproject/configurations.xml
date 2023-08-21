@@ -21,6 +21,7 @@
       <itemPath>PWMprueba1.c</itemPath>
       <itemPath>LCD.c</itemPath>
       <itemPath>Slave1prueba.c</itemPath>
+      <itemPath>pruebaI2Cslave.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -165,6 +166,8 @@
         </XC8-CO>
         <XC8-config-global>
         </XC8-config-global>
+      </item>
+      <item path="Slave1prueba.c" ex="true" overriding="false">
       </item>
       <XC8-CO>
         <property key="coverage-enable" value=""/>

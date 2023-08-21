@@ -136,19 +136,10 @@ void main (void)
         }
        if (!PORTBbits.RB2){
            while (!RB2) ;
-             PORTEbits.RE0 = 1;
+           PORTE = 1;
        
         }
-        if (!PORTBbits.RB3){
-           while (!RB3) ;
-           if( PORTEbits.RE1 == 0){
-             PORTEbits.RE1 = 1; 
-           }
-           if( PORTEbits.RE1 == 1){
-             PORTEbits.RE1 = 0; 
-           }
-        }
-           
+        
        
        //--------------------------------
        char s[20];
