@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>I2C.h</itemPath>
+      <itemPath>LCD.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -15,6 +16,11 @@
                    projectFiles="true">
       <itemPath>I2C.c</itemPath>
       <itemPath>Slave1.c</itemPath>
+      <itemPath>PWM.c</itemPath>
+      <itemPath>PWM.h</itemPath>
+      <itemPath>PWMprueba1.c</itemPath>
+      <itemPath>LCD.c</itemPath>
+      <itemPath>Slave1prueba.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -148,6 +154,18 @@
         <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <item path="PWMprueba1.c" ex="true" overriding="false">
+      </item>
+      <item path="Slave1.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
