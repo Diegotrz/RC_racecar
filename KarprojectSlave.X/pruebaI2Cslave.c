@@ -37,6 +37,8 @@
 #define _XTAL_FREQ 8000000
 uint8_t z;
 uint8_t dato;
+uint8_t state;
+
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -70,7 +72,7 @@ void __interrupt() isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = PORTB;
+            SSPBUF = state;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -88,10 +90,12 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
-        PORTB = ~PORTB;
-       __delay_ms(500);
+        state = 1;
+        __delay_ms(1000);
+        state = 0;
+        __delay_us(1000);
     }
-    return;
+    
 }
 //*****************************************************************************
 // Función de Inicialización
@@ -105,5 +109,5 @@ void setup(void){
     
     PORTB = 0;
     PORTD = 0;
-    I2C_Slave_Init(0x50);   
+    I2C_Slave_Init(0x24);   
 }

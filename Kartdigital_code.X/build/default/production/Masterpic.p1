@@ -1,68 +1,122 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\include\builtins.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"543 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"1044
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1044:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"1054
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1054:     struct {
+[s S38 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S38 . RCD8 . RC9 ]
+"1059
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1059:     struct {
+[s S39 :6 `uc 1 :1 `uc 1 ]
+[n S39 . . nRC8 ]
+"1063
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1063:     struct {
+[s S40 :6 `uc 1 :1 `uc 1 ]
+[n S40 . . RC8_9 ]
+"1043
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1043: typedef union {
+[u S36 `S37 1 `S38 1 `S39 1 `S40 1 ]
+[n S36 . . . . . ]
+"1068
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1068: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0x018)));
+[v _RCSTAbits `VS36 ~T0 @X0 0 e@24 ]
+"1140
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 [p mainexit ]
-"43 pruebaI2C.c
-[; ;pruebaI2C.c: 43: void setup(void);
+"38 Masterpic.c
+[; ;Masterpic.c: 38: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"41 ./I2C.h
-[; ;./I2C.h: 41: void I2C_Master_Start(void);
-[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
-"55
-[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
-[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
-"60
-[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
-"49
-[; ;./I2C.h: 49: void I2C_Master_Stop(void);
-[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
-[v F1272 `(v ~T0 @X0 1 tf1`ul ]
+"1862 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1862: extern volatile unsigned char OSCCON __attribute__((address(0x08F)));
+[v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
+"15 ./USARTmodl.h
+[; ;./USARTmodl.h: 15: void UART_Init(const uint32_t baud_rate);
+[v _UART_Init `(v ~T0 @X0 0 ef1`Cul ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.41\pic\include\builtins.h
-[v __delay `JF1272 ~T0 @X0 0 e ]
+[v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"352 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"3387
+"19 ./USARTmodl.h
+[; ;./USARTmodl.h: 19: void UART_Print(const char *data);
+[v _UART_Print `(v ~T0 @X0 0 ef1`*Cuc ]
+"16
+[; ;./USARTmodl.h: 16: __bit UART_Data_Ready();
+[v _UART_Data_Ready `(b ~T0 @X0 0 e? ]
+"17
+[; ;./USARTmodl.h: 17: uint8_t UART_GetC();
+[v _UART_GetC `(uc ~T0 @X0 0 e? ]
+"18
+[; ;./USARTmodl.h: 18: void UART_PutC(const char data);
+[v _UART_PutC `(v ~T0 @X0 0 ef1`Cuc ]
+"3387 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
 [v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
-"1478
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "1602
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
-"228
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"29 ./I2C.h
-[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
-[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
-"9 pruebaI2C.c
-[p x FOSC  =  EXTRC_NOCLKOUT ]
-"10
+"352
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"465
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"8 Masterpic.c
+[p x FOSC  =  INTRC_CLKOUT ]
+"9
 [p x WDTE  =  OFF        ]
-"11
+"10
 [p x PWRTE  =  OFF       ]
-"12
+"11
 [p x MCLRE  =  OFF       ]
-"13
+"12
 [p x CP  =  OFF          ]
-"14
+"13
 [p x CPD  =  OFF         ]
-"15
+"14
 [p x BOREN  =  OFF       ]
-"16
+"15
 [p x IESO  =  OFF        ]
+"16
+[p x FCMEN  =  ON        ]
 "17
-[p x FCMEN  =  OFF       ]
-"18
-[p x LVP  =  OFF         ]
-"21
+[p x LVP  =  ON          ]
+"20
 [p x BOR4V  =  BOR40V    ]
-"22
+"21
 [p x WRT  =  OFF         ]
 "54 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
@@ -298,98 +352,209 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"44 pruebaI2C.c
-[; ;pruebaI2C.c: 44: uint8_t dato;
-[v _dato `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"14 ./USARTmodl.h
+[; ;./USARTmodl.h: 14: const char message[] = "2.Enviar Ascii" ;
+[v _message `Cuc ~T0 @X0 -> 15 `i e ]
+[i _message
+:U ..
+-> 50 `c
+-> 46 `c
+-> 69 `c
+-> 110 `c
+-> 118 `c
+-> 105 `c
+-> 97 `c
+-> 114 `c
+-> 32 `c
+-> 65 `c
+-> 115 `c
+-> 99 `c
+-> 105 `c
+-> 105 `c
+-> 0 `c
+..
+]
+"31 Masterpic.c
+[; ;Masterpic.c: 31: char datos[20];
+[v _datos `uc ~T0 @X0 -> 20 `i e ]
+"32
+[; ;Masterpic.c: 32: uint8_t RPMR, RPML,aceleracX;
+[v _RPMR `uc ~T0 @X0 1 e ]
+[v _RPML `uc ~T0 @X0 1 e ]
+[v _aceleracX `uc ~T0 @X0 1 e ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"34
+[; ;Masterpic.c: 34: void __attribute__((picinterrupt(("")))) isr (void)
+[v _isr `(v ~T1 @X0 1 ef ]
+"35
+[; ;Masterpic.c: 35: {
+{
+[e :U _isr ]
+[f ]
+"36
+[; ;Masterpic.c: 36:     __nop();
+[e ( ___nop ..  ]
+"37
+[; ;Masterpic.c: 37: }
+[e :UE 139 ]
+}
+"41
+[; ;Masterpic.c: 41:  char uart_read(){
+[v _uart_read `(uc ~T0 @X0 1 ef ]
+{
+[e :U _uart_read ]
+[f ]
+"42
+[; ;Masterpic.c: 42:  if(PIR1bits.RCIF== 0){
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 0 `i 141  ]
+{
+"43
+[; ;Masterpic.c: 43:      if (RCSTAbits.OERR){
+[e $ ! != -> . . _RCSTAbits 0 1 `i -> 0 `i 142  ]
+{
+"44
+[; ;Masterpic.c: 44:          RCSTAbits.CREN =0;
+[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
+"45
+[; ;Masterpic.c: 45:          __nop();
+[e ( ___nop ..  ]
+"46
+[; ;Masterpic.c: 46:          RCSTAbits.CREN =1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"47
+[; ;Masterpic.c: 47:  }
+}
+[e :U 142 ]
 "48
-[; ;pruebaI2C.c: 48: void main(void) {
+[; ;Masterpic.c: 48:      return RCREG;
+[e ) -> _RCREG `uc ]
+[e $UE 140  ]
+"49
+[; ;Masterpic.c: 49:  }
+}
+[e $U 143  ]
+"50
+[; ;Masterpic.c: 50:  else
+[e :U 141 ]
+"51
+[; ;Masterpic.c: 51:      return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 140  ]
+[e :U 143 ]
+"52
+[; ;Masterpic.c: 52:  }
+[e :UE 140 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"54
+[; ;Masterpic.c: 54: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
+"55
+[; ;Masterpic.c: 55: {
 {
 [e :U _main ]
 [f ]
-"49
-[; ;pruebaI2C.c: 49:     setup();
+"56
+[; ;Masterpic.c: 56:     setup();
 [e ( _setup ..  ]
-"50
-[; ;pruebaI2C.c: 50:     while(1){
-[e :U 140 ]
-{
-"58
-[; ;pruebaI2C.c: 58:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
+"57
+[; ;Masterpic.c: 57:   OSCCON = 0x70;
+[e = _OSCCON -> -> 112 `i `uc ]
 "59
-[; ;pruebaI2C.c: 59:         I2C_Master_Write(0x25);
-[e ( _I2C_Master_Write (1 -> -> 37 `i `ui ]
-"60
-[; ;pruebaI2C.c: 60:         dato = I2C_Master_Read(0);
-[e = _dato -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+[; ;Masterpic.c: 59:   UART_Init(9600);
+[e ( _UART_Init (1 -> -> -> 9600 `i `l `ul ]
 "61
-[; ;pruebaI2C.c: 61:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"62
-[; ;pruebaI2C.c: 62:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"63
-[; ;pruebaI2C.c: 63:         if (dato == 1){
-[e $ ! == -> _dato `i -> 1 `i 142  ]
-{
-"64
-[; ;pruebaI2C.c: 64:             PORTD = 255;
-[e = _PORTD -> -> 255 `i `uc ]
-"65
-[; ;pruebaI2C.c: 65:         }
-}
-[e :U 142 ]
+[; ;Masterpic.c: 61:   _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "66
-[; ;pruebaI2C.c: 66:        if (dato == 0){
-[e $ ! == -> _dato `i -> 0 `i 143  ]
-{
+[; ;Masterpic.c: 66:  char text[9];
+[v _text `uc ~T0 @X0 -> 9 `i a ]
 "67
-[; ;pruebaI2C.c: 67:             PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;Masterpic.c: 67:   while(1)
+[e :U 146 ]
 "68
-[; ;pruebaI2C.c: 68:         }
-}
-[e :U 143 ]
+[; ;Masterpic.c: 68:   {
+{
 "69
-[; ;pruebaI2C.c: 69:     }
-}
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
+[; ;Masterpic.c: 69:       RPMR = 100;
+[e = _RPMR -> -> 100 `i `uc ]
+"70
+[; ;Masterpic.c: 70:       RPML= 50;
+[e = _RPML -> -> 50 `i `uc ]
 "71
-[; ;pruebaI2C.c: 71: }
-[e :UE 138 ]
+[; ;Masterpic.c: 71:       aceleracX= 24;
+[e = _aceleracX -> -> 24 `i `uc ]
+"77
+[; ;Masterpic.c: 77:       datos[0]= RPMR;
+[e = *U + &U _datos * -> -> -> 0 `i `ui `ux -> -> # *U &U _datos `ui `ux -> _RPMR `uc ]
+"78
+[; ;Masterpic.c: 78:       datos[4]= RPML;
+[e = *U + &U _datos * -> -> -> 4 `i `ui `ux -> -> # *U &U _datos `ui `ux -> _RPML `uc ]
+"79
+[; ;Masterpic.c: 79:       datos[8]= aceleracX;
+[e = *U + &U _datos * -> -> -> 8 `i `ui `ux -> -> # *U &U _datos `ui `ux -> _aceleracX `uc ]
+"80
+[; ;Masterpic.c: 80:       UART_Print ("\r\n");
+[e ( _UART_Print (1 :s 1C ]
+"82
+[; ;Masterpic.c: 82:              UART_Print(datos);
+[e ( _UART_Print (1 -> &U _datos `*Cuc ]
+"83
+[; ;Masterpic.c: 83:              _delay((unsigned long)((700)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"85
+[; ;Masterpic.c: 85:     if ( UART_Data_Ready() )
+[e $ ! ( _UART_Data_Ready ..  148  ]
+"86
+[; ;Masterpic.c: 86:     {
+{
+"87
+[; ;Masterpic.c: 87:       uint8_t c = UART_GetC();
+[v _c `uc ~T0 @X0 1 a ]
+[e = _c ( _UART_GetC ..  ]
+"88
+[; ;Masterpic.c: 88:       UART_PutC(c);
+[e ( _UART_PutC (1 -> _c `uc ]
+"89
+[; ;Masterpic.c: 89:     }
 }
-"75
-[; ;pruebaI2C.c: 75: void setup(void){
+[e :U 148 ]
+"96
+[; ;Masterpic.c: 96:   }
+}
+[e :U 145 ]
+[e $U 146  ]
+[e :U 147 ]
+"98
+[; ;Masterpic.c: 98: }
+[e :UE 144 ]
+}
+"99
+[; ;Masterpic.c: 99: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"76
-[; ;pruebaI2C.c: 76:     ANSEL = 0;
+"100
+[; ;Masterpic.c: 100:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"77
-[; ;pruebaI2C.c: 77:     ANSELH = 0;
+"101
+[; ;Masterpic.c: 101:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"78
-[; ;pruebaI2C.c: 78:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"79
-[; ;pruebaI2C.c: 79:     TRISD = 0;
+"104
+[; ;Masterpic.c: 104:     TRISD= 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"80
-[; ;pruebaI2C.c: 80:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"81
-[; ;pruebaI2C.c: 81:     PORTD = 0;
+"105
+[; ;Masterpic.c: 105:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"82
-[; ;pruebaI2C.c: 82:     I2C_Master_Init(100000);
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"83
-[; ;pruebaI2C.c: 83: }
-[e :UE 144 ]
+"110
+[; ;Masterpic.c: 110:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"111
+[; ;Masterpic.c: 111:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"113
+[; ;Masterpic.c: 113: }
+[e :UE 149 ]
 }
+[a 1C 13 10 0 ]

@@ -2710,6 +2710,8 @@ void I2C_Slave_Init(uint8_t address);
 
 uint8_t z;
 uint8_t dato;
+uint8_t state;
+
 
 
 
@@ -2743,7 +2745,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = PORTB;
+            SSPBUF = state;
             SSPCONbits.CKP = 1;
             _delay((unsigned long)((250)*(8000000/4000000.0)));
             while(SSPSTATbits.BF);
@@ -2761,10 +2763,12 @@ void main(void) {
 
 
     while(1){
-        PORTB = ~PORTB;
-       _delay((unsigned long)((500)*(8000000/4000.0)));
+        state = 1;
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        state = 0;
+        _delay((unsigned long)((1000)*(8000000/4000000.0)));
     }
-    return;
+
 }
 
 
@@ -2778,5 +2782,5 @@ void setup(void){
 
     PORTB = 0;
     PORTD = 0;
-    I2C_Slave_Init(0x50);
+    I2C_Slave_Init(0x24);
 }

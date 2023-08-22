@@ -41,27 +41,33 @@
 // contrario hay que colocarlos todas las funciones antes del main
 //*****************************************************************************
 void setup(void);
-
+uint8_t dato;
 //*****************************************************************************
 // Main
 //*****************************************************************************
 void main(void) {
     setup();
     while(1){
+        /*
         I2C_Master_Start();
-        I2C_Master_Write(0x50);
+        I2C_Master_Write(0x24);
         I2C_Master_Write(PORTB);
         I2C_Master_Stop();
         __delay_ms(200);
-       
+       */
         I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        PORTD = I2C_Master_Read(0);
+        I2C_Master_Write(0x25);
+        dato = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
-       
+        if (dato == 1){
+            PORTD = 255;
+        }
+       if (dato == 0){
+            PORTD = 0;
+        }
     }
-    return;
+  
 }
 //*****************************************************************************
 // Función de Inicialización
