@@ -172,6 +172,101 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 30 "pruebaI2C.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 31 "pruebaI2C.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\proc\\pic16f887.h" 1 3
 # 44 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\proc\\pic16f887.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\__at.h" 1 3
@@ -2583,7 +2678,7 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 31 "pruebaI2C.c" 2
+# 32 "pruebaI2C.c" 2
 
 # 1 "./I2C.h" 1
 # 18 "./I2C.h"
@@ -2706,34 +2801,57 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void I2C_Slave_Init(uint8_t address);
-# 32 "pruebaI2C.c" 2
-# 43 "pruebaI2C.c"
+# 33 "pruebaI2C.c" 2
+
+# 1 "./LCD.h" 1
+# 47 "./LCD.h"
+void Lcd_Port(char a);
+
+void Lcd_Cmd(char a);
+
+void Lcd_Clear(void);
+
+void Lcd_Set_Cursor(char a, char b);
+
+void Lcd_Init(void);
+
+void Lcd_Write_Char(char a);
+
+void Lcd_Write_String(char *a);
+
+void Lcd_Shift_Right(void);
+
+void Lcd_Shift_Left(void);
+# 34 "pruebaI2C.c" 2
+# 45 "pruebaI2C.c"
 void setup(void);
 uint8_t dato;
+int x = 100;
+uint8_t y = 94;
+uint8_t z = 2;
+static char datos[] = "varl: 000:000:000";
 
 
 
 void main(void) {
     setup();
+    Lcd_Init();
+    I2C_Master_Init(100000);
+
+
     while(1){
-
-
-
-
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x25);
-        dato = I2C_Master_Read(0);
-        I2C_Master_Stop();
+# 72 "pruebaI2C.c"
         _delay((unsigned long)((200)*(8000000/4000.0)));
-        if (dato == 1){
-            PORTD = 255;
-        }
-       if (dato == 0){
-            PORTD = 0;
-        }
+# 81 "pruebaI2C.c"
+        int x = 111;
+         datos[6] = x / 10 + '0';
+        datos[7] = x % 10 + '0';
+        datos[8] = x / 10 + '0';
+        Lcd_Set_Cursor(1,1);
+
+    Lcd_Write_String(datos);
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("Hola");
     }
 
 }

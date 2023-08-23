@@ -1,4 +1,4 @@
-# 1 "Slave1prueba.c"
+# 1 "pruebaI2Cslave.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,14 +6,16 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Slave1prueba.c" 2
+# 1 "pruebaI2Cslave.c" 2
 
 
 
 
 
 
-#pragma config FOSC = INTRC_CLKOUT
+
+
+#pragma config FOSC = EXTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -31,20 +33,7 @@
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
-# 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
 
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\builtins.h" 1 3
 
 
 
@@ -181,42 +170,103 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 5 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\builtins.h" 2 3
+# 30 "pruebaI2Cslave.c" 2
 
-
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(uint32_t);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-# 25 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\htc.h" 1 3
 
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
-# 5 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\htc.h" 2 3
-# 6 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
 
 
 
 
 
 
+typedef void * va_list[1];
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic_chip_select.h" 1 3
-# 724 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic_chip_select.h" 3
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 31 "pruebaI2Cslave.c" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\proc\\pic16f887.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\proc\\pic16f887.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\__at.h" 1 3
@@ -2627,7 +2677,63 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 725 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic_chip_select.h" 2 3
+# 32 "pruebaI2Cslave.c" 2
+
+# 1 "./I2C.h" 1
+# 18 "./I2C.h"
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
+# 18 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 24 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\builtins.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
+# 5 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\builtins.h" 2 3
+
+
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+
+#pragma intrinsic(_delay)
+extern __attribute__((nonreentrant)) void _delay(uint32_t);
+#pragma intrinsic(_delaywdt)
+extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
+# 25 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 1 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
+# 5 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\htc.h" 2 3
+# 6 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 2 3
+
+
+
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic_chip_select.h" 1 3
 # 14 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 2 3
 # 76 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\pic.h" 3
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
@@ -2648,62 +2754,13 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 24 "Slave1prueba.c" 2
+# 18 "./I2C.h" 2
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 25 "Slave1prueba.c" 2
-
-# 1 "./PWM.h" 1
-# 11 "./PWM.h"
-int chn1, chn2;
-float periodo_ms;
-int chn;
-
-void PWM_init (int chn1,int chn2,float periodo_ms);
-void PWM_duty (int chn,float duty);
-# 26 "Slave1prueba.c" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
-# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
-
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 1 3
+# 20 "./I2C.h" 2
+# 29 "./I2C.h"
+void I2C_Master_Init(const unsigned long c);
 
 
 
@@ -2711,53 +2768,35 @@ struct __prbuf
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 9 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\conio.h" 2 3
+void I2C_Master_Wait(void);
 
 
 
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
+void I2C_Master_Start(void);
 
 
 
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 86 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
+void I2C_Master_RepeatedStart(void);
 
 
 
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
+void I2C_Master_Stop(void);
 
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 28 "Slave1prueba.c" 2
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+# 33 "pruebaI2Cslave.c" 2
 
 # 1 "./LCD.h" 1
 # 47 "./LCD.h"
@@ -2778,22 +2817,22 @@ void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
-# 29 "Slave1prueba.c" 2
+# 34 "pruebaI2Cslave.c" 2
 
 
 
 
 
-int i;
-float val;
 
+uint8_t z;
+uint8_t dato;
+uint8_t state;
+static char lec[] = "varl: 00:00:00";
 
+uint8_t x = 100;
+uint8_t y = 94;
+uint8_t z = 2;
 
-unsigned int valadr,valpot0,valpot1,valprom;
-uint8_t a= 0;
-uint8_t b= 0;
-int c= 0;
-uint8_t rpm= 0;
 
 
 
@@ -2802,172 +2841,71 @@ void setup(void);
 
 
 
+void __attribute__((picinterrupt(("")))) isr(void){
+   if(PIR1bits.SSPIF == 1){
 
-void __attribute__((picinterrupt(("")))) isr (void)
-{
+        SSPCONbits.CKP = 0;
 
-
-   if(PIR1bits.ADIF){
-
-       if (ADCON0bits.CHS ==1){
-             PWM_duty(0,ADRESH);
-              valpot0 = ADRESH;
-
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
         }
-        else if (ADCON0bits.CHS ==0){
-            PWM_duty(1 ,ADRESH);
-             valpot1 = ADRESH;
-        }
-      else if (ADCON0bits.CHS == 2)
-            val = ADRESH;
-            PIR1bits.ADIF =0;
 
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            PORTD = SSPBUF;
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
+
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = lec;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
+            while(SSPSTATbits.BF);
+        }
+
+        PIR1bits.SSPIF = 0;
     }
-   if (INTCONbits.T0IF){
-
-
-        if (c<=100){
-           c ++;
-
-        }
-
-        if (c==100){
-            rpm = a/2;
-            a= 0;
-            b= 0;
-            c=0;
-        }
-        INTCONbits.T0IF = 0;
-        TMR0 = 0;
-
-    }
-
-
 }
 
 
 
-
-void main (void)
-{
+void main(void) {
     setup();
-    OSCCON = 0x70;
-     PWM_init (0,0,255);
-    ADCON0bits.GO =1;
-
-  _delay((unsigned long)((500)*(8000000/4000.0)));
-
-
- Lcd_Init();
- ADCON0bits.GO =1;
- char text[9];
-    i=0;
-
-    while(1)
-    {
-
-       if (ADCON0bits.GO ==0){
-           for (i=0;i<=2;i++){
-           ADCON0bits.CHS = i;
-           ADCON0bits.GO =1;
-
-           }
-
-
-       }
-
-       if (!PORTBbits.RB0){
-
-                a ++;
-
-        }
-    if (!PORTBbits.RB1){
-
-                b ++;
-
-
-        }
-       if (!PORTBbits.RB2){
-           while (!RB2) ;
-           PORTE = 1;
-
-        }
+    Lcd_Init();
 
 
 
-       char s[20];
-       char s2[20];
-       char s3[20];
-        sprintf(s, "%u", rpm);
-        sprintf(s2, "%u", a);
-        sprintf(s3, "%u", b);
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String(s);
-    Lcd_Set_Cursor(1,4);
-    Lcd_Write_String(s2);
-    Lcd_Set_Cursor(1,8);
-    Lcd_Write_String(s3);
+    while(1){
+        lec[6] = x / 10 + '0';
+        lec[7] = x % 10 + '0';
 
 
 
+        Lcd_Set_Cursor(1,1);
+    Lcd_Write_Char(lec);
     }
+
 }
-
-
-
 
 
 
 void setup(void){
-    ANSEL = 0b00000011;
+    ANSEL = 0;
     ANSELH = 0;
 
-    TRISA = 0xFF;
-    TRISB = 0b11111111;
+    TRISB = 0;
     TRISD = 0;
-    OPTION_REGbits.nRBPU = 0;
-    TRISE = 0;
 
-
-    WPUB = 0b1111;
-
-
+    PORTB = 0;
     PORTD = 0;
-    PORTE = 0;
-
-
-
-
-
-    OSCCONbits.IRCF = 0b0111;
-    OSCCONbits.SCS = 1;
-
-
-    ADCON1bits.ADFM = 0;
-    ADCON1bits.VCFG0 = 0;
-    ADCON1bits.VCFG1 = 0;
-
-    ADCON0bits.ADCS = 0b01;
-    ADCON0bits.CHS = 0;
-    ADCON0bits.ADON= 1;
-    _delay((unsigned long)((50)*(8000000/4000000.0)));
-
-OPTION_REGbits.T0CS = 0;
-OPTION_REGbits.T0SE = 0;
-OPTION_REGbits.PSA = 0;
-OPTION_REGbits.PS2 = 1;
-OPTION_REGbits.PS1 = 1;
-OPTION_REGbits.PS0 = 1;
-TMR0 = 0;
-
-
-
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
-
-    INTCONbits.RBIE = 0;
-    INTCONbits.RBIF = 1;
-
-    INTCONbits.PEIE = 1;
-    INTCONbits.GIE = 1;
+    I2C_Slave_Init(0x24);
 }

@@ -28,8 +28,10 @@
 // Definición e importación de librerías
 //*****************************************************************************
 #include <stdint.h>
+#include "stdio.h"
 #include <pic16f887.h>
 #include "I2C.h"
+#include "LCD.h"
 #include <xc.h>
 //*****************************************************************************
 // Definición de variables
@@ -38,12 +40,17 @@
 uint8_t z;
 uint8_t dato;
 uint8_t state;
+static char lec[] = "varl: 00:00:00";
 
+int x = 10;
+uint8_t y = 94;
+uint8_t z = 2;
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
 //*****************************************************************************
 void setup(void);
+
 //*****************************************************************************
 // Código de Interrupción 
 //*****************************************************************************
@@ -72,7 +79,7 @@ void __interrupt() isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = state;
+            SSPBUF = lec;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -86,14 +93,19 @@ void __interrupt() isr(void){
 //*****************************************************************************
 void main(void) {
     setup();
+    Lcd_Init();
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
     while(1){
-        state = 1;
-        __delay_ms(1000);
-        state = 0;
-        __delay_us(1000);
+       int x= 10;
+        lec[6]  = x   / 10 + '0';
+        lec[7]  = x   % 10 + '0';
+       // lec[0] = x;
+     //   lec[4] = y;
+       // lec[8] = z;
+        Lcd_Set_Cursor(1,1);
+    Lcd_Write_String (lec);
     }
     
 }

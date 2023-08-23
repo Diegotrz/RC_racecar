@@ -28,8 +28,10 @@
 // Definición e importación de librerías
 //*****************************************************************************
 #include <stdint.h>
+#include "stdio.h"
 #include <pic16f887.h>
 #include "I2C.h"
+#include "LCD.h"
 #include <xc.h>
 //*****************************************************************************
 // Definición de variables
@@ -42,11 +44,19 @@
 //*****************************************************************************
 void setup(void);
 uint8_t dato;
+int x = 100;
+uint8_t y = 94;
+uint8_t z = 2;
+static char datos[] = "varl: 000:000:000";
 //*****************************************************************************
 // Main
 //*****************************************************************************
 void main(void) {
     setup();
+    Lcd_Init();
+    I2C_Master_Init(100000);
+    
+    
     while(1){
         /*
         I2C_Master_Start();
@@ -55,17 +65,28 @@ void main(void) {
         I2C_Master_Stop();
         __delay_ms(200);
        */
-        I2C_Master_Start();
-        I2C_Master_Write(0x25);
-        dato = I2C_Master_Read(0);
-        I2C_Master_Stop();
+       // I2C_Master_Start();
+       // I2C_Master_Write(0x25);
+       // datos = I2C_Master_Read(0);
+       // I2C_Master_Stop();
         __delay_ms(200);
+        /*
         if (dato == 1){
             PORTD = 255;
         }
        if (dato == 0){
             PORTD = 0;
         }
+         * */
+        int x = 111;
+         datos[6]  = x   / 10 + '0';
+        datos[7]  = x   % 10 + '0';
+        datos[8] = x   / 10 + '0';
+        Lcd_Set_Cursor(1,1);
+    
+    Lcd_Write_String(datos);
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("Hola");
     }
   
 }

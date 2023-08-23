@@ -1,28 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"43 pruebaI2C.c
-[; ;pruebaI2C.c: 43: void setup(void);
+"45 pruebaI2C.c
+[; ;pruebaI2C.c: 45: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"41 ./I2C.h
-[; ;./I2C.h: 41: void I2C_Master_Start(void);
-[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
-"55
-[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
-[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
-"60
-[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
-"49
-[; ;./I2C.h: 49: void I2C_Master_Stop(void);
-[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
-[v F1272 `(v ~T0 @X0 1 tf1`ul ]
+"55 ./LCD.h
+[; ;./LCD.h: 55: void Lcd_Init(void);
+[v _Lcd_Init `(v ~T0 @X0 0 ef ]
+"29 ./I2C.h
+[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
+[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+[v F1329 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.41\pic\include\builtins.h
-[v __delay `JF1272 ~T0 @X0 0 e ]
+[v __delay `JF1329 ~T0 @X0 0 e ]
 [p i __delay ]
-"352 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"3387
+"53 ./LCD.h
+[; ;./LCD.h: 53: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"59
+[; ;./LCD.h: 59: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+"3387 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -37,9 +34,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "228
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"29 ./I2C.h
-[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
-[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"352
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "9 pruebaI2C.c
 [p x FOSC  =  EXTRC_NOCLKOUT ]
 "10
@@ -298,98 +295,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"44 pruebaI2C.c
-[; ;pruebaI2C.c: 44: uint8_t dato;
+"46 pruebaI2C.c
+[; ;pruebaI2C.c: 46: uint8_t dato;
 [v _dato `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"47
+[; ;pruebaI2C.c: 47: int x = 100;
+[v _x `i ~T0 @X0 1 e ]
+[i _x
+-> 100 `i
+]
 "48
-[; ;pruebaI2C.c: 48: void main(void) {
+[; ;pruebaI2C.c: 48: uint8_t y = 94;
+[v _y `uc ~T0 @X0 1 e ]
+[i _y
+-> -> 94 `i `uc
+]
+"49
+[; ;pruebaI2C.c: 49: uint8_t z = 2;
+[v _z `uc ~T0 @X0 1 e ]
+[i _z
+-> -> 2 `i `uc
+]
+"50
+[; ;pruebaI2C.c: 50: static char datos[] = "varl: 000:000:000";
+[v _datos `uc ~T0 @X0 -> 18 `i s ]
+[i _datos
+:U ..
+-> 118 `c
+-> 97 `c
+-> 114 `c
+-> 108 `c
+-> 58 `c
+-> 32 `c
+-> 48 `c
+-> 48 `c
+-> 48 `c
+-> 58 `c
+-> 48 `c
+-> 48 `c
+-> 48 `c
+-> 58 `c
+-> 48 `c
+-> 48 `c
+-> 48 `c
+-> 0 `c
+..
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"54
+[; ;pruebaI2C.c: 54: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"49
-[; ;pruebaI2C.c: 49:     setup();
+"55
+[; ;pruebaI2C.c: 55:     setup();
 [e ( _setup ..  ]
-"50
-[; ;pruebaI2C.c: 50:     while(1){
-[e :U 140 ]
-{
-"58
-[; ;pruebaI2C.c: 58:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"59
-[; ;pruebaI2C.c: 59:         I2C_Master_Write(0x25);
-[e ( _I2C_Master_Write (1 -> -> 37 `i `ui ]
+"56
+[; ;pruebaI2C.c: 56:     Lcd_Init();
+[e ( _Lcd_Init ..  ]
+"57
+[; ;pruebaI2C.c: 57:     I2C_Master_Init(100000);
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
 "60
-[; ;pruebaI2C.c: 60:         dato = I2C_Master_Read(0);
-[e = _dato -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"61
-[; ;pruebaI2C.c: 61:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"62
-[; ;pruebaI2C.c: 62:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"63
-[; ;pruebaI2C.c: 63:         if (dato == 1){
-[e $ ! == -> _dato `i -> 1 `i 142  ]
-{
-"64
-[; ;pruebaI2C.c: 64:             PORTD = 255;
-[e = _PORTD -> -> 255 `i `uc ]
-"65
-[; ;pruebaI2C.c: 65:         }
-}
-[e :U 142 ]
-"66
-[; ;pruebaI2C.c: 66:        if (dato == 0){
-[e $ ! == -> _dato `i -> 0 `i 143  ]
-{
-"67
-[; ;pruebaI2C.c: 67:             PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"68
-[; ;pruebaI2C.c: 68:         }
-}
-[e :U 143 ]
-"69
-[; ;pruebaI2C.c: 69:     }
-}
-[e :U 139 ]
-[e $U 140  ]
+[; ;pruebaI2C.c: 60:     while(1){
 [e :U 141 ]
-"71
-[; ;pruebaI2C.c: 71: }
-[e :UE 138 ]
+{
+"72
+[; ;pruebaI2C.c: 72:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"81
+[; ;pruebaI2C.c: 81:         int x = 111;
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 111 `i ]
+"82
+[; ;pruebaI2C.c: 82:          datos[6] = x / 10 + '0';
+[e = *U + &U _datos * -> -> -> 6 `i `ui `ux -> -> # *U &U _datos `ui `ux -> + -> / _x -> 10 `i `ui -> 48 `ui `uc ]
+"83
+[; ;pruebaI2C.c: 83:         datos[7] = x % 10 + '0';
+[e = *U + &U _datos * -> -> -> 7 `i `ui `ux -> -> # *U &U _datos `ui `ux -> + -> % _x -> 10 `i `ui -> 48 `ui `uc ]
+"84
+[; ;pruebaI2C.c: 84:         datos[8] = x / 10 + '0';
+[e = *U + &U _datos * -> -> -> 8 `i `ui `ux -> -> # *U &U _datos `ui `ux -> + -> / _x -> 10 `i `ui -> 48 `ui `uc ]
+"85
+[; ;pruebaI2C.c: 85:         Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"87
+[; ;pruebaI2C.c: 87:     Lcd_Write_String(datos);
+[e ( _Lcd_Write_String (1 &U _datos ]
+"88
+[; ;pruebaI2C.c: 88:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"89
+[; ;pruebaI2C.c: 89:     Lcd_Write_String("Hola");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"90
+[; ;pruebaI2C.c: 90:     }
 }
-"75
-[; ;pruebaI2C.c: 75: void setup(void){
+[e :U 140 ]
+[e $U 141  ]
+[e :U 142 ]
+"92
+[; ;pruebaI2C.c: 92: }
+[e :UE 139 ]
+}
+"96
+[; ;pruebaI2C.c: 96: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"76
-[; ;pruebaI2C.c: 76:     ANSEL = 0;
+"97
+[; ;pruebaI2C.c: 97:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"77
-[; ;pruebaI2C.c: 77:     ANSELH = 0;
+"98
+[; ;pruebaI2C.c: 98:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"78
-[; ;pruebaI2C.c: 78:     TRISB = 0;
+"99
+[; ;pruebaI2C.c: 99:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"79
-[; ;pruebaI2C.c: 79:     TRISD = 0;
+"100
+[; ;pruebaI2C.c: 100:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"80
-[; ;pruebaI2C.c: 80:     PORTB = 0;
+"101
+[; ;pruebaI2C.c: 101:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"81
-[; ;pruebaI2C.c: 81:     PORTD = 0;
+"102
+[; ;pruebaI2C.c: 102:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"82
-[; ;pruebaI2C.c: 82:     I2C_Master_Init(100000);
+"103
+[; ;pruebaI2C.c: 103:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"83
-[; ;pruebaI2C.c: 83: }
-[e :UE 144 ]
+"104
+[; ;pruebaI2C.c: 104: }
+[e :UE 143 ]
 }
+[a 1C 72 111 108 97 0 ]

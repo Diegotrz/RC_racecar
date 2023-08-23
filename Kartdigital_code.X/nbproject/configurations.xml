@@ -177,7 +177,7 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
-      <item path="Masterpic.c" ex="false" overriding="false">
+      <item path="Masterpic.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>
@@ -218,8 +218,6 @@
         </XC8-CO>
         <XC8-config-global>
         </XC8-config-global>
-      </item>
-      <item path="pruebaI2C.c" ex="true" overriding="false">
       </item>
       <item path="pruebamasterpic.c" ex="true" overriding="false">
         <HI-TECH-COMP>
