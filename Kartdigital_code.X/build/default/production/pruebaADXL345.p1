@@ -9,8 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 2178: extern volatile unsigned char SSPSTAT __attribute__((address(0x094)));
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
 [p mainexit ]
-"48 pruebaADXL345.c
-[; ;pruebaADXL345.c: 48: void setup(void);
+"61 pruebaADXL345.c
+[; ;pruebaADXL345.c: 61: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
 "55 ./LCD.h
 [; ;./LCD.h: 55: void Lcd_Init(void);
@@ -365,8 +365,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3547
 [; ;D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 3547: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"40 pruebaADXL345.c
-[; ;pruebaADXL345.c: 40: uint8_t i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
+"52 pruebaADXL345.c
+[; ;pruebaADXL345.c: 52: uint8_t i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
 [v _i `uc ~T0 @X0 1 e ]
 [v _x `uc ~T0 @X0 1 e ]
 [v _y `uc ~T0 @X0 1 e ]
@@ -378,256 +378,301 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Yval2 `uc ~T0 @X0 1 e ]
 [v _Zval `uc ~T0 @X0 1 e ]
 [v _Zval2 `uc ~T0 @X0 1 e ]
-"41
-[; ;pruebaADXL345.c: 41: char s[20];
+"53
+[; ;pruebaADXL345.c: 53: char s[20];
 [v _s `uc ~T0 @X0 -> 20 `i e ]
-"42
-[; ;pruebaADXL345.c: 42: char s2[20];
+"54
+[; ;pruebaADXL345.c: 54: char s2[20];
 [v _s2 `uc ~T0 @X0 -> 20 `i e ]
-"43
-[; ;pruebaADXL345.c: 43: char s3[20];
+"55
+[; ;pruebaADXL345.c: 55: char s3[20];
 [v _s3 `uc ~T0 @X0 -> 20 `i e ]
-"49
-[; ;pruebaADXL345.c: 49: void I2C_Init(uint32_t i2c_clk_freq)
+"62
+[; ;pruebaADXL345.c: 62: void I2C_Init(uint32_t i2c_clk_freq)
 [v _I2C_Init `(v ~T0 @X0 1 ef1`ul ]
-"51
-[; ;pruebaADXL345.c: 51: {
+"64
+[; ;pruebaADXL345.c: 64: {
 {
 [e :U _I2C_Init ]
-"49
-[; ;pruebaADXL345.c: 49: void I2C_Init(uint32_t i2c_clk_freq)
+"62
+[; ;pruebaADXL345.c: 62: void I2C_Init(uint32_t i2c_clk_freq)
 [v _i2c_clk_freq `ul ~T0 @X0 1 r1 ]
-"51
-[; ;pruebaADXL345.c: 51: {
+"64
+[; ;pruebaADXL345.c: 64: {
 [f ]
-"52
-[; ;pruebaADXL345.c: 52:   SSPCON = 0x28;
+"65
+[; ;pruebaADXL345.c: 65:   SSPCON = 0x28;
 [e = _SSPCON -> -> 40 `i `uc ]
-"53
-[; ;pruebaADXL345.c: 53:   SSPADD = (8000000/(4 * i2c_clk_freq)) - 1;
+"66
+[; ;pruebaADXL345.c: 66:   SSPADD = (8000000/(4 * i2c_clk_freq)) - 1;
 [e = _SSPADD -> - / -> -> 8000000 `l `ul * -> -> -> 4 `i `l `ul _i2c_clk_freq -> -> -> 1 `i `l `ul `uc ]
-"54
-[; ;pruebaADXL345.c: 54:   SSPSTAT = 0;
+"67
+[; ;pruebaADXL345.c: 67:   SSPSTAT = 0;
 [e = _SSPSTAT -> -> 0 `i `uc ]
-"55
-[; ;pruebaADXL345.c: 55: }
+"68
+[; ;pruebaADXL345.c: 68: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"62
-[; ;pruebaADXL345.c: 62: void main(void) {
+"75
+[; ;pruebaADXL345.c: 75: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"63
-[; ;pruebaADXL345.c: 63:     setup();
+"76
+[; ;pruebaADXL345.c: 76:     setup();
 [e ( _setup ..  ]
-"64
-[; ;pruebaADXL345.c: 64:     Lcd_Init();
+"77
+[; ;pruebaADXL345.c: 77:     Lcd_Init();
 [e ( _Lcd_Init ..  ]
-"65
-[; ;pruebaADXL345.c: 65:     I2C_Init(100000);
+"78
+[; ;pruebaADXL345.c: 78:     I2C_Init(100000);
 [e ( _I2C_Init (1 -> -> 100000 `l `ul ]
-"66
-[; ;pruebaADXL345.c: 66:      I2C_Master_Start();
+"79
+[; ;pruebaADXL345.c: 79:      I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"67
-[; ;pruebaADXL345.c: 67:         I2C_Master_Write(0x2D);
-[e ( _I2C_Master_Write (1 -> -> 45 `i `ui ]
-"68
-[; ;pruebaADXL345.c: 68:         I2C_Master_Write(0b00001000);
-[e ( _I2C_Master_Write (1 -> -> 8 `i `ui ]
-"69
-[; ;pruebaADXL345.c: 69:         I2C_Master_RepeatedStart();
+"80
+[; ;pruebaADXL345.c: 80:         I2C_Master_Write(56);
+[e ( _I2C_Master_Write (1 -> -> 56 `i `ui ]
+"81
+[; ;pruebaADXL345.c: 81:         I2C_Master_Write(0x9f);
+[e ( _I2C_Master_Write (1 -> -> 159 `i `ui ]
+"82
+[; ;pruebaADXL345.c: 82:         I2C_Master_RepeatedStart();
 [e ( _I2C_Master_RepeatedStart ..  ]
-"70
-[; ;pruebaADXL345.c: 70:         I2C_Master_Write(0x31);
+"83
+[; ;pruebaADXL345.c: 83:         I2C_Master_Write(49);
 [e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
-"71
-[; ;pruebaADXL345.c: 71:         I2C_Master_Write(0b00000010);
-[e ( _I2C_Master_Write (1 -> -> 2 `i `ui ]
-"72
-[; ;pruebaADXL345.c: 72:         I2C_Master_Stop();
+"84
+[; ;pruebaADXL345.c: 84:         I2C_Master_Write(0x09);
+[e ( _I2C_Master_Write (1 -> -> 9 `i `ui ]
+"85
+[; ;pruebaADXL345.c: 85:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"86
+[; ;pruebaADXL345.c: 86:         I2C_Master_Write(44);
+[e ( _I2C_Master_Write (1 -> -> 44 `i `ui ]
+"87
+[; ;pruebaADXL345.c: 87:         I2C_Master_Write(0x0d);
+[e ( _I2C_Master_Write (1 -> -> 13 `i `ui ]
+"88
+[; ;pruebaADXL345.c: 88:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"89
+[; ;pruebaADXL345.c: 89:         I2C_Master_Write(45);
+[e ( _I2C_Master_Write (1 -> -> 45 `i `ui ]
+"90
+[; ;pruebaADXL345.c: 90:         I2C_Master_Write(0x08);
+[e ( _I2C_Master_Write (1 -> -> 8 `i `ui ]
+"92
+[; ;pruebaADXL345.c: 92:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"74
-[; ;pruebaADXL345.c: 74:     while(1){
+"94
+[; ;pruebaADXL345.c: 94:     while(1){
 [e :U 142 ]
 {
-"78
-[; ;pruebaADXL345.c: 78:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"79
-[; ;pruebaADXL345.c: 79:         I2C_Master_Write(0x32);
-[e ( _I2C_Master_Write (1 -> -> 50 `i `ui ]
-"80
-[; ;pruebaADXL345.c: 80:         Xval = I2C_Master_Read(0);
-[e = _Xval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"81
-[; ;pruebaADXL345.c: 81:         I2C_Master_RepeatedStart();
-[e ( _I2C_Master_RepeatedStart ..  ]
-"82
-[; ;pruebaADXL345.c: 82:         I2C_Master_Write(0x33);
-[e ( _I2C_Master_Write (1 -> -> 51 `i `ui ]
-"83
-[; ;pruebaADXL345.c: 83:         Xval2 = I2C_Master_Read(0);
-[e = _Xval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"84
-[; ;pruebaADXL345.c: 84:         I2C_Master_RepeatedStart();
-[e ( _I2C_Master_RepeatedStart ..  ]
-"85
-[; ;pruebaADXL345.c: 85:         I2C_Master_Write(0x34);
-[e ( _I2C_Master_Write (1 -> -> 52 `i `ui ]
-"86
-[; ;pruebaADXL345.c: 86:         Yval = I2C_Master_Read(0);
-[e = _Yval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"87
-[; ;pruebaADXL345.c: 87:         I2C_Master_RepeatedStart();
-[e ( _I2C_Master_RepeatedStart ..  ]
-"88
-[; ;pruebaADXL345.c: 88:         I2C_Master_Write(0x35);
-[e ( _I2C_Master_Write (1 -> -> 53 `i `ui ]
-"89
-[; ;pruebaADXL345.c: 89:         Yval2 = I2C_Master_Read(0);
-[e = _Yval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"90
-[; ;pruebaADXL345.c: 90:         I2C_Master_RepeatedStart();
-[e ( _I2C_Master_RepeatedStart ..  ]
-"91
-[; ;pruebaADXL345.c: 91:         I2C_Master_Write(0x36);
-[e ( _I2C_Master_Write (1 -> -> 54 `i `ui ]
-"92
-[; ;pruebaADXL345.c: 92:         Zval = I2C_Master_Read(0);
-[e = _Zval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"93
-[; ;pruebaADXL345.c: 93:         I2C_Master_RepeatedStart();
-[e ( _I2C_Master_RepeatedStart ..  ]
-"94
-[; ;pruebaADXL345.c: 94:         I2C_Master_Write(0x37);
-[e ( _I2C_Master_Write (1 -> -> 55 `i `ui ]
-"95
-[; ;pruebaADXL345.c: 95:         Zval2 = I2C_Master_Read(0);
-[e = _Zval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"96
-[; ;pruebaADXL345.c: 96:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
 "98
-[; ;pruebaADXL345.c: 98:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;pruebaADXL345.c: 98:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "99
-[; ;pruebaADXL345.c: 99:          Lcd_Clear();
-[e ( _Lcd_Clear ..  ]
+[; ;pruebaADXL345.c: 99:          I2C_Master_Write(0xA6);
+[e ( _I2C_Master_Write (1 -> -> 166 `i `ui ]
 "100
-[; ;pruebaADXL345.c: 100:          x= (Xval2<<8)| (Xval & 0xFF);
-[e = _x -> | << -> _Xval2 `i -> 8 `i & -> _Xval `i -> 255 `i `uc ]
-"101
-[; ;pruebaADXL345.c: 101:          y= Yval|Yval2 <<8;
-[e = _y -> | -> _Yval `i << -> _Yval2 `i -> 8 `i `uc ]
+[; ;pruebaADXL345.c: 100:          I2C_Master_Write(50);
+[e ( _I2C_Master_Write (1 -> -> 50 `i `ui ]
 "102
-[; ;pruebaADXL345.c: 102:          z= Zval|Zval2 <<8;
-[e = _z -> | -> _Zval `i << -> _Zval2 `i -> 8 `i `uc ]
+[; ;pruebaADXL345.c: 102:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
 "103
-[; ;pruebaADXL345.c: 103:          x2= x/256;
-[e = _x2 -> / -> _x `i -> 256 `i `uc ]
+[; ;pruebaADXL345.c: 103:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
 "104
-[; ;pruebaADXL345.c: 104:         sprintf(s, "%u", x2);
-[e ( _sprintf (1 , (. , &U _s :s 1C -> _x2 `i ]
+[; ;pruebaADXL345.c: 104:         I2C_Master_Write(0x32);
+[e ( _I2C_Master_Write (1 -> -> 50 `i `ui ]
 "105
-[; ;pruebaADXL345.c: 105:         sprintf(s2, "%u", y);
-[e ( _sprintf (1 , (. , &U _s2 :s 2C -> _y `i ]
+[; ;pruebaADXL345.c: 105:         Xval = I2C_Master_Read(0);
+[e = _Xval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "106
-[; ;pruebaADXL345.c: 106:         sprintf(s3, "%u", z);
-[e ( _sprintf (1 , (. , &U _s3 :s 3C -> _z `i ]
+[; ;pruebaADXL345.c: 106:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
 "107
-[; ;pruebaADXL345.c: 107:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;pruebaADXL345.c: 107:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
 "108
-[; ;pruebaADXL345.c: 108:     Lcd_Write_String(s);
-[e ( _Lcd_Write_String (1 &U _s ]
+[; ;pruebaADXL345.c: 108:         I2C_Master_Write(0x33);
+[e ( _I2C_Master_Write (1 -> -> 51 `i `ui ]
 "109
-[; ;pruebaADXL345.c: 109:     Lcd_Set_Cursor(1,5);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
+[; ;pruebaADXL345.c: 109:         Xval2 = I2C_Master_Read(0);
+[e = _Xval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "110
-[; ;pruebaADXL345.c: 110:     Lcd_Write_String(s2);
-[e ( _Lcd_Write_String (1 &U _s2 ]
+[; ;pruebaADXL345.c: 110:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
 "111
-[; ;pruebaADXL345.c: 111:     Lcd_Set_Cursor(1,12);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
+[; ;pruebaADXL345.c: 111:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
 "112
-[; ;pruebaADXL345.c: 112:     Lcd_Write_String(s3);
-[e ( _Lcd_Write_String (1 &U _s3 ]
+[; ;pruebaADXL345.c: 112:         I2C_Master_Write(0x34);
+[e ( _I2C_Master_Write (1 -> -> 52 `i `ui ]
 "113
-[; ;pruebaADXL345.c: 113:    Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;pruebaADXL345.c: 113:         Yval = I2C_Master_Read(0);
+[e = _Yval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "114
-[; ;pruebaADXL345.c: 114:     Lcd_Write_String("hey");
-[e ( _Lcd_Write_String (1 :s 4C ]
+[; ;pruebaADXL345.c: 114:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"115
+[; ;pruebaADXL345.c: 115:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
 "116
-[; ;pruebaADXL345.c: 116:     }
+[; ;pruebaADXL345.c: 116:         I2C_Master_Write(0x35);
+[e ( _I2C_Master_Write (1 -> -> 53 `i `ui ]
+"117
+[; ;pruebaADXL345.c: 117:         Yval2 = I2C_Master_Read(0);
+[e = _Yval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"118
+[; ;pruebaADXL345.c: 118:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"119
+[; ;pruebaADXL345.c: 119:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
+"120
+[; ;pruebaADXL345.c: 120:         I2C_Master_Write(0x36);
+[e ( _I2C_Master_Write (1 -> -> 54 `i `ui ]
+"121
+[; ;pruebaADXL345.c: 121:         Zval = I2C_Master_Read(0);
+[e = _Zval -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"122
+[; ;pruebaADXL345.c: 122:         I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"123
+[; ;pruebaADXL345.c: 123:         I2C_Master_Write(0xA7);
+[e ( _I2C_Master_Write (1 -> -> 167 `i `ui ]
+"124
+[; ;pruebaADXL345.c: 124:         I2C_Master_Write(0x37);
+[e ( _I2C_Master_Write (1 -> -> 55 `i `ui ]
+"125
+[; ;pruebaADXL345.c: 125:         Zval2 = I2C_Master_Read(0);
+[e = _Zval2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"126
+[; ;pruebaADXL345.c: 126:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"128
+[; ;pruebaADXL345.c: 128:         _delay((unsigned long)((300)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"129
+[; ;pruebaADXL345.c: 129:          Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"130
+[; ;pruebaADXL345.c: 130:          x= (Xval2<<8)| (Xval & 0xFF);
+[e = _x -> | << -> _Xval2 `i -> 8 `i & -> _Xval `i -> 255 `i `uc ]
+"131
+[; ;pruebaADXL345.c: 131:          y= Yval|Yval2 <<8;
+[e = _y -> | -> _Yval `i << -> _Yval2 `i -> 8 `i `uc ]
+"132
+[; ;pruebaADXL345.c: 132:          z= Zval|Zval2 <<8;
+[e = _z -> | -> _Zval `i << -> _Zval2 `i -> 8 `i `uc ]
+"133
+[; ;pruebaADXL345.c: 133:          x2= x/256;
+[e = _x2 -> / -> _x `i -> 256 `i `uc ]
+"134
+[; ;pruebaADXL345.c: 134:         sprintf(s, "%u", x2);
+[e ( _sprintf (1 , (. , &U _s :s 1C -> _x2 `i ]
+"135
+[; ;pruebaADXL345.c: 135:         sprintf(s2, "%u", y);
+[e ( _sprintf (1 , (. , &U _s2 :s 2C -> _y `i ]
+"136
+[; ;pruebaADXL345.c: 136:         sprintf(s3, "%u", z);
+[e ( _sprintf (1 , (. , &U _s3 :s 3C -> _z `i ]
+"137
+[; ;pruebaADXL345.c: 137:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"138
+[; ;pruebaADXL345.c: 138:     Lcd_Write_String(s);
+[e ( _Lcd_Write_String (1 &U _s ]
+"139
+[; ;pruebaADXL345.c: 139:     Lcd_Set_Cursor(1,5);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
+"140
+[; ;pruebaADXL345.c: 140:     Lcd_Write_String(s2);
+[e ( _Lcd_Write_String (1 &U _s2 ]
+"141
+[; ;pruebaADXL345.c: 141:     Lcd_Set_Cursor(1,12);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
+"142
+[; ;pruebaADXL345.c: 142:     Lcd_Write_String(s3);
+[e ( _Lcd_Write_String (1 &U _s3 ]
+"143
+[; ;pruebaADXL345.c: 143:    Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"144
+[; ;pruebaADXL345.c: 144:     Lcd_Write_String("hey");
+[e ( _Lcd_Write_String (1 :s 4C ]
+"146
+[; ;pruebaADXL345.c: 146:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"118
-[; ;pruebaADXL345.c: 118: }
+"148
+[; ;pruebaADXL345.c: 148: }
 [e :UE 140 ]
 }
-"122
-[; ;pruebaADXL345.c: 122: void setup(void){
+"152
+[; ;pruebaADXL345.c: 152: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"123
-[; ;pruebaADXL345.c: 123:     ANSEL = 0;
+"153
+[; ;pruebaADXL345.c: 153:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"124
-[; ;pruebaADXL345.c: 124:     ANSELH = 0;
+"154
+[; ;pruebaADXL345.c: 154:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"125
-[; ;pruebaADXL345.c: 125:     TRISC1 = 0;
+"155
+[; ;pruebaADXL345.c: 155:     TRISC1 = 0;
 [e = _TRISC1 -> -> 0 `i `b ]
-"126
-[; ;pruebaADXL345.c: 126:     TRISC2 = 0;
+"156
+[; ;pruebaADXL345.c: 156:     TRISC2 = 0;
 [e = _TRISC2 -> -> 0 `i `b ]
-"127
-[; ;pruebaADXL345.c: 127:     TRISC6 = 0;
+"157
+[; ;pruebaADXL345.c: 157:     TRISC6 = 0;
 [e = _TRISC6 -> -> 0 `i `b ]
-"128
-[; ;pruebaADXL345.c: 128:     TRISC7 = 0;
+"158
+[; ;pruebaADXL345.c: 158:     TRISC7 = 0;
 [e = _TRISC7 -> -> 0 `i `b ]
-"129
-[; ;pruebaADXL345.c: 129:     TRISA =0;
+"159
+[; ;pruebaADXL345.c: 159:     TRISA =0;
 [e = _TRISA -> -> 0 `i `uc ]
-"130
-[; ;pruebaADXL345.c: 130:     TRISB = 0;
+"160
+[; ;pruebaADXL345.c: 160:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"131
-[; ;pruebaADXL345.c: 131:     TRISD = 0;
+"161
+[; ;pruebaADXL345.c: 161:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"132
-[; ;pruebaADXL345.c: 132:     PORTA = 0;
+"162
+[; ;pruebaADXL345.c: 162:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"133
-[; ;pruebaADXL345.c: 133:     PORTB = 0;
+"163
+[; ;pruebaADXL345.c: 163:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"134
-[; ;pruebaADXL345.c: 134:     PORTD = 0;
+"164
+[; ;pruebaADXL345.c: 164:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"135
-[; ;pruebaADXL345.c: 135:     PORTCbits.RC1 = 1;
+"165
+[; ;pruebaADXL345.c: 165:     PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"136
-[; ;pruebaADXL345.c: 136:     PORTCbits.RC2 = 1;
+"166
+[; ;pruebaADXL345.c: 166:     PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"139
-[; ;pruebaADXL345.c: 139:     OSCCONbits.IRCF = 0b0111;
+"169
+[; ;pruebaADXL345.c: 169:     OSCCONbits.IRCF = 0b0111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"140
-[; ;pruebaADXL345.c: 140:     OSCCONbits.SCS = 1;
+"170
+[; ;pruebaADXL345.c: 170:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"143
-[; ;pruebaADXL345.c: 143: }
+"173
+[; ;pruebaADXL345.c: 173: }
 [e :UE 144 ]
 }
 [p f _sprintf 8389632 ]

@@ -2822,16 +2822,12 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 # 34 "pruebaADXL345.c" 2
-
-
-
-
-
-
+# 52 "pruebaADXL345.c"
 uint8_t i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
 char s[20];
 char s2[20];
 char s3[20];
+
 
 
 
@@ -2855,11 +2851,18 @@ void main(void) {
     Lcd_Init();
     I2C_Init(100000);
      I2C_Master_Start();
-        I2C_Master_Write(0x2D);
-        I2C_Master_Write(0b00001000);
+        I2C_Master_Write(56);
+        I2C_Master_Write(0x9f);
         I2C_Master_RepeatedStart();
-        I2C_Master_Write(0x31);
-        I2C_Master_Write(0b00000010);
+        I2C_Master_Write(49);
+        I2C_Master_Write(0x09);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(44);
+        I2C_Master_Write(0x0d);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(45);
+        I2C_Master_Write(0x08);
+
         I2C_Master_Stop();
 
     while(1){
@@ -2867,26 +2870,36 @@ void main(void) {
 
 
         I2C_Master_Start();
+         I2C_Master_Write(0xA6);
+         I2C_Master_Write(50);
+
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x32);
         Xval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x33);
         Xval2 = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x34);
         Yval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x35);
         Yval2 = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x36);
         Zval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xA7);
         I2C_Master_Write(0x37);
         Zval2 = I2C_Master_Read(0);
         I2C_Master_Stop();
 
-        _delay((unsigned long)((200)*(8000000/4000.0)));
+        _delay((unsigned long)((300)*(8000000/4000.0)));
          Lcd_Clear();
          x= (Xval2<<8)| (Xval & 0xFF);
          y= Yval|Yval2 <<8;

@@ -37,10 +37,23 @@
 // Definición de variables
 //*****************************************************************************
 #define _XTAL_FREQ 8000000
+#define  BW_RATE            44    //0x2C
+#define  POWER_CTL          45    //0x2D
+#define  DATA_FORMAT        49    //0x31
+#define  DATAX0             50    //0x32
+#define  DATAX1             51    //0x33
+#define  DATAY0             52    //0x34
+#define  DATAY1             53    //0x35
+#define  DATAZ0             54    //0x36
+#define  DATAZ1             55    //0x37
+#define  FIFO_CTL           56    //0x38            ADXL1345    1010011   0x53   Device
+#define CHIP_Write    0xA6        // adxl345 address for writing    10100110  0xA6   Write
+#define CHIP_Read    0xA7        // and reading                    10100111  0xA7   Read
 uint8_t  i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
 char s[20];
 char s2[20];
 char s3[20];
+
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -64,11 +77,18 @@ void main(void) {
     Lcd_Init();
     I2C_Init(100000);
      I2C_Master_Start();
-        I2C_Master_Write(0x2D);
-        I2C_Master_Write(0b00001000);
+        I2C_Master_Write(FIFO_CTL);
+        I2C_Master_Write(0x9f);
         I2C_Master_RepeatedStart();
-        I2C_Master_Write(0x31);
-        I2C_Master_Write(0b00000010);  
+        I2C_Master_Write(DATA_FORMAT);
+        I2C_Master_Write(0x09);  
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(BW_RATE);
+        I2C_Master_Write(0x0d);  
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(POWER_CTL);
+        I2C_Master_Write(0x08); 
+      
         I2C_Master_Stop();
         
     while(1){
@@ -76,26 +96,36 @@ void main(void) {
   
        
         I2C_Master_Start();
+         I2C_Master_Write(CHIP_Write);
+         I2C_Master_Write(50);
+      //  I2C_Master_RepeatedStart();
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x32);
         Xval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x33);
         Xval2 = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x34);
         Yval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x35);
         Yval2 = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x36);
         Zval = I2C_Master_Read(0);
         I2C_Master_RepeatedStart();
+        I2C_Master_Write(CHIP_Read);
         I2C_Master_Write(0x37);
         Zval2 = I2C_Master_Read(0);
         I2C_Master_Stop();
         
-        __delay_ms(200);
+        __delay_ms(300);
          Lcd_Clear();
          x= (Xval2<<8)| (Xval & 0xFF);
          y= Yval|Yval2 <<8;
