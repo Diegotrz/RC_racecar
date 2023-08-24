@@ -47,7 +47,8 @@ uint8_t dato;
 int x = 100;
 uint8_t y = 94;
 uint8_t z = 2;
-static char datos[] = "varl: 000:000:000";
+char s[3];
+char datos;
 //*****************************************************************************
 // Main
 //*****************************************************************************
@@ -65,10 +66,10 @@ void main(void) {
         I2C_Master_Stop();
         __delay_ms(200);
        */
-       // I2C_Master_Start();
-       // I2C_Master_Write(0x25);
-       // datos = I2C_Master_Read(0);
-       // I2C_Master_Stop();
+       I2C_Master_Start();
+       I2C_Master_Write(0x25);
+       datos = I2C_Master_Read(0);
+       I2C_Master_Stop();
         __delay_ms(200);
         /*
         if (dato == 1){
@@ -77,16 +78,19 @@ void main(void) {
        if (dato == 0){
             PORTD = 0;
         }
-         * */
-        int x = 111;
-         datos[6]  = x   / 10 + '0';
-        datos[7]  = x   % 10 + '0';
-        datos[8] = x   / 10 + '0';
+         */
+      //  int x = 11;
+        //sprintf(s, "%u", x);
+         //datos[6]  = x   / 10 + '0';
+       // datos[7]  = x   % 10 + '0';
+       // datos[8] = x   / 10 + '0';
+       // datos[6] = s;
         Lcd_Set_Cursor(1,1);
     
     Lcd_Write_String(datos);
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("Hola");
+   Lcd_Set_Cursor(2,1);
+    
+    Lcd_Write_String("hola");
     }
   
 }

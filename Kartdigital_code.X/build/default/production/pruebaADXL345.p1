@@ -366,11 +366,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 3547: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "40 pruebaADXL345.c
-[; ;pruebaADXL345.c: 40: uint8_t i, x,y,z,Xval,Xval2,Yval,Yval2,Zval,Zval2;
+[; ;pruebaADXL345.c: 40: uint8_t i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
 [v _i `uc ~T0 @X0 1 e ]
 [v _x `uc ~T0 @X0 1 e ]
 [v _y `uc ~T0 @X0 1 e ]
 [v _z `uc ~T0 @X0 1 e ]
+[v _x2 `uc ~T0 @X0 1 e ]
 [v _Xval `uc ~T0 @X0 1 e ]
 [v _Xval2 `uc ~T0 @X0 1 e ]
 [v _Yval `uc ~T0 @X0 1 e ]
@@ -526,101 +527,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;pruebaADXL345.c: 102:          z= Zval|Zval2 <<8;
 [e = _z -> | -> _Zval `i << -> _Zval2 `i -> 8 `i `uc ]
 "103
-[; ;pruebaADXL345.c: 103:         sprintf(s, "%u", x);
-[e ( _sprintf (1 , (. , &U _s :s 1C -> _x `i ]
+[; ;pruebaADXL345.c: 103:          x2= x/256;
+[e = _x2 -> / -> _x `i -> 256 `i `uc ]
 "104
-[; ;pruebaADXL345.c: 104:         sprintf(s2, "%u", y);
-[e ( _sprintf (1 , (. , &U _s2 :s 2C -> _y `i ]
+[; ;pruebaADXL345.c: 104:         sprintf(s, "%u", x2);
+[e ( _sprintf (1 , (. , &U _s :s 1C -> _x2 `i ]
 "105
-[; ;pruebaADXL345.c: 105:         sprintf(s3, "%u", z);
-[e ( _sprintf (1 , (. , &U _s3 :s 3C -> _z `i ]
+[; ;pruebaADXL345.c: 105:         sprintf(s2, "%u", y);
+[e ( _sprintf (1 , (. , &U _s2 :s 2C -> _y `i ]
 "106
-[; ;pruebaADXL345.c: 106:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;pruebaADXL345.c: 106:         sprintf(s3, "%u", z);
+[e ( _sprintf (1 , (. , &U _s3 :s 3C -> _z `i ]
 "107
-[; ;pruebaADXL345.c: 107:     Lcd_Write_String(s);
-[e ( _Lcd_Write_String (1 &U _s ]
+[; ;pruebaADXL345.c: 107:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "108
-[; ;pruebaADXL345.c: 108:     Lcd_Set_Cursor(1,5);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
+[; ;pruebaADXL345.c: 108:     Lcd_Write_String(s);
+[e ( _Lcd_Write_String (1 &U _s ]
 "109
-[; ;pruebaADXL345.c: 109:     Lcd_Write_String(s2);
-[e ( _Lcd_Write_String (1 &U _s2 ]
+[; ;pruebaADXL345.c: 109:     Lcd_Set_Cursor(1,5);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
 "110
-[; ;pruebaADXL345.c: 110:     Lcd_Set_Cursor(1,12);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
+[; ;pruebaADXL345.c: 110:     Lcd_Write_String(s2);
+[e ( _Lcd_Write_String (1 &U _s2 ]
 "111
-[; ;pruebaADXL345.c: 111:     Lcd_Write_String(s3);
+[; ;pruebaADXL345.c: 111:     Lcd_Set_Cursor(1,12);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
+"112
+[; ;pruebaADXL345.c: 112:     Lcd_Write_String(s3);
 [e ( _Lcd_Write_String (1 &U _s3 ]
+"113
+[; ;pruebaADXL345.c: 113:    Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "114
-[; ;pruebaADXL345.c: 114:     }
+[; ;pruebaADXL345.c: 114:     Lcd_Write_String("hey");
+[e ( _Lcd_Write_String (1 :s 4C ]
+"116
+[; ;pruebaADXL345.c: 116:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"116
-[; ;pruebaADXL345.c: 116: }
+"118
+[; ;pruebaADXL345.c: 118: }
 [e :UE 140 ]
 }
-"120
-[; ;pruebaADXL345.c: 120: void setup(void){
+"122
+[; ;pruebaADXL345.c: 122: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"121
-[; ;pruebaADXL345.c: 121:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"122
-[; ;pruebaADXL345.c: 122:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
 "123
-[; ;pruebaADXL345.c: 123:     TRISC1 = 0;
-[e = _TRISC1 -> -> 0 `i `b ]
+[; ;pruebaADXL345.c: 123:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "124
-[; ;pruebaADXL345.c: 124:     TRISC2 = 0;
-[e = _TRISC2 -> -> 0 `i `b ]
+[; ;pruebaADXL345.c: 124:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "125
-[; ;pruebaADXL345.c: 125:     TRISC6 = 0;
-[e = _TRISC6 -> -> 0 `i `b ]
+[; ;pruebaADXL345.c: 125:     TRISC1 = 0;
+[e = _TRISC1 -> -> 0 `i `b ]
 "126
-[; ;pruebaADXL345.c: 126:     TRISC7 = 0;
-[e = _TRISC7 -> -> 0 `i `b ]
+[; ;pruebaADXL345.c: 126:     TRISC2 = 0;
+[e = _TRISC2 -> -> 0 `i `b ]
 "127
-[; ;pruebaADXL345.c: 127:     TRISA =0;
-[e = _TRISA -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 127:     TRISC6 = 0;
+[e = _TRISC6 -> -> 0 `i `b ]
 "128
-[; ;pruebaADXL345.c: 128:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 128:     TRISC7 = 0;
+[e = _TRISC7 -> -> 0 `i `b ]
 "129
-[; ;pruebaADXL345.c: 129:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 129:     TRISA =0;
+[e = _TRISA -> -> 0 `i `uc ]
 "130
-[; ;pruebaADXL345.c: 130:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 130:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "131
-[; ;pruebaADXL345.c: 131:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 131:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "132
-[; ;pruebaADXL345.c: 132:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;pruebaADXL345.c: 132:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "133
-[; ;pruebaADXL345.c: 133:     PORTCbits.RC1 = 1;
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+[; ;pruebaADXL345.c: 133:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "134
-[; ;pruebaADXL345.c: 134:     PORTCbits.RC2 = 1;
+[; ;pruebaADXL345.c: 134:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"135
+[; ;pruebaADXL345.c: 135:     PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"136
+[; ;pruebaADXL345.c: 136:     PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"137
-[; ;pruebaADXL345.c: 137:     OSCCONbits.IRCF = 0b0111;
+"139
+[; ;pruebaADXL345.c: 139:     OSCCONbits.IRCF = 0b0111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"138
-[; ;pruebaADXL345.c: 138:     OSCCONbits.SCS = 1;
+"140
+[; ;pruebaADXL345.c: 140:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"141
-[; ;pruebaADXL345.c: 141: }
+"143
+[; ;pruebaADXL345.c: 143: }
 [e :UE 144 ]
 }
 [p f _sprintf 8389632 ]
+[a 4C 104 101 121 0 ]
 [a 1C 37 117 0 ]
 [a 2C 37 117 0 ]
 [a 3C 37 117 0 ]

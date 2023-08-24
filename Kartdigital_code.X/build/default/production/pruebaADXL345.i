@@ -2828,7 +2828,7 @@ extern int printf(const char *, ...);
 
 
 
-uint8_t i, x,y,z,Xval,Xval2,Yval,Yval2,Zval,Zval2;
+uint8_t i, x,y,z,x2,Xval,Xval2,Yval,Yval2,Zval,Zval2;
 char s[20];
 char s2[20];
 char s3[20];
@@ -2891,7 +2891,8 @@ void main(void) {
          x= (Xval2<<8)| (Xval & 0xFF);
          y= Yval|Yval2 <<8;
          z= Zval|Zval2 <<8;
-        sprintf(s, "%u", x);
+         x2= x/256;
+        sprintf(s, "%u", x2);
         sprintf(s2, "%u", y);
         sprintf(s3, "%u", z);
     Lcd_Set_Cursor(1,1);
@@ -2900,7 +2901,8 @@ void main(void) {
     Lcd_Write_String(s2);
     Lcd_Set_Cursor(1,12);
     Lcd_Write_String(s3);
-
+   Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("hey");
 
     }
 

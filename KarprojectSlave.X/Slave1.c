@@ -62,12 +62,12 @@ void __interrupt() isr (void)
    if (INTCONbits.T0IF){
         //b==31 para un segundo
         // b == 305 para 10 segundos
-        if (c<=100){
+        if (c<=60){
            c ++;  
           
         }
         
-        if (c==100){
+        if (c==60){
             rpm = a/2;
             a= 0;
             b= 0;
@@ -77,7 +77,39 @@ void __interrupt() isr (void)
         TMR0 = 0;
     
     }
-   
+   if(PIR1bits.SSPIF == 1){ 
+
+        SSPCONbits.CKP = 0;
+       
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;                 // Read the previous value to clear the buffer
+            SSPCONbits.SSPOV = 0;       // Clear the overflow flag
+            SSPCONbits.WCOL = 0;        // Clear the collision bit
+            SSPCONbits.CKP = 1;         // Enables SCL (Clock)
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+            //__delay_us(7);
+            z = SSPBUF;                 // Lectura del SSBUF para limpiar el buffer y la bandera BF
+            //__delay_us(2);
+            PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
+            SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
+            while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
+            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            __delay_us(250);
+            
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = rpm;
+            SSPCONbits.CKP = 1;
+            __delay_us(250);
+            while(SSPSTATbits.BF);
+        }
+       
+        PIR1bits.SSPIF = 0;    
+    }
    
 }
 

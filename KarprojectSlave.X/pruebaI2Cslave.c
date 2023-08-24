@@ -40,7 +40,7 @@
 uint8_t z;
 uint8_t dato;
 uint8_t state;
-static char lec[] = "varl: 00:00:00";
+ char lec[];
 
 int x = 10;
 uint8_t y = 94;
@@ -77,6 +77,7 @@ void __interrupt() isr(void){
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            
             z = SSPBUF;
             BF = 0;
             SSPBUF = lec;
@@ -93,19 +94,17 @@ void __interrupt() isr(void){
 //*****************************************************************************
 void main(void) {
     setup();
-    Lcd_Init();
+    
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
     while(1){
-       int x= 10;
-        lec[6]  = x   / 10 + '0';
-        lec[7]  = x   % 10 + '0';
-       // lec[0] = x;
-     //   lec[4] = y;
-       // lec[8] = z;
-        Lcd_Set_Cursor(1,1);
-    Lcd_Write_String (lec);
+       
+      
+     //int x= 10;
+       // lec[1]  = x   / 10 + '0';
+        //lec[2]  = x   % 10 + '0';
+        lec[1]= "uno";
     }
     
 }
