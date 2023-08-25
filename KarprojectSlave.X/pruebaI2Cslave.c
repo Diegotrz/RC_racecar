@@ -79,16 +79,15 @@ void __interrupt() isr(void){
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
-<<<<<<< Updated upstream
-            
-=======
+
+
               if (prob == 'r'){
             val = 20;
         }
          if (prob == 'l'){
             val = 5;
         }
->>>>>>> Stashed changes
+
             z = SSPBUF;
             BF = 0;
             SSPBUF = val;
@@ -110,14 +109,14 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
-<<<<<<< Updated upstream
+
        
       
      //int x= 10;
        // lec[1]  = x   / 10 + '0';
         //lec[2]  = x   % 10 + '0';
         lec[1]= "uno";
-=======
+
         /*
        int x= 10;
         lec[6]  = x   / 10 + '0';
@@ -133,7 +132,7 @@ void main(void) {
       //  prob = 'l';
        
         __delay_us(10);
->>>>>>> Stashed changes
+
     }
     
 }

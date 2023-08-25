@@ -3,44 +3,37 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\__lldiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"505 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c
+"505 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"32 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
+"32 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "39
 [v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-<<<<<<< Updated upstream
 "47
 [v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
-=======
->>>>>>> Stashed changes
 "55
 [v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
 "65
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
-<<<<<<< Updated upstream
-"13 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
-=======
 "13 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
->>>>>>> Stashed changes
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 "35
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
@@ -54,25 +47,17 @@
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 "98
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
-<<<<<<< Updated upstream
-"62 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
+"62 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 "75
 [v _main main `(v  1 e 1 0 ]
 "152
-=======
-"56 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaI2C.c
-[v _main main `(v  1 e 1 0 ]
-"131
->>>>>>> Stashed changes
 [v _setup setup `(v  1 e 1 0 ]
-"59 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\USARTmodl.c
+"59 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\USARTmodl.c
 [v _UART_PutC UART_PutC `(v  1 e 1 0 ]
-"358 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c
-[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"167 D:/Mpxlab/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
+"166 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
-"229
+"228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 [s S226 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
@@ -83,10 +68,10 @@
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-"308
+"307
 [u S235 . 1 `S226 1 . 1 0 ]
 [v _PORTCbits PORTCbits `VES235  1 e 1 @7 ]
-"353
+"352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 [s S109 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
@@ -97,22 +82,22 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-"370
+"369
 [u S118 . 1 `S109 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES118  1 e 1 @8 ]
-"844
+"843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
-"851
+"850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1039
+"1038
 [v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
-"1134
+"1133
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
-"1141
+"1140
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
-"1417
+"1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
-"1479
+"1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 [s S26 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
@@ -123,10 +108,10 @@
 `uc 1 TRISC6 1 0 :1:6 
 `uc 1 TRISC7 1 0 :1:7 
 ]
-"1558
+"1557
 [u S35 . 1 `S26 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES35  1 e 1 @135 ]
-"1603
+"1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 [s S247 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
@@ -134,7 +119,7 @@
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
-"1883
+"1882
 [s S253 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
@@ -142,7 +127,7 @@
 ]
 [u S258 . 1 `S247 1 . 1 0 `S253 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES258  1 e 1 @143 ]
-"1980
+"1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 [s S47 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
@@ -153,61 +138,62 @@
 `uc 1 ACKSTAT 1 0 :1:6 
 `uc 1 GCEN 1 0 :1:7 
 ]
-"1997
+"1996
 [u S56 . 1 `S47 1 . 1 0 ]
 [v _SSPCON2bits SSPCON2bits `VES56  1 e 1 @145 ]
-"2049
+"2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
-"2178
+"2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-"2557
+"2556
 [v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
-"2643
+"2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-"3388
+"3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-"3450
+"3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"3841
+"3840
 [v _CREN CREN `VEb  1 e 0 @196 ]
-"3901
+"3900
 [v _GIE GIE `VEb  1 e 0 @95 ]
-"4006
+"4005
 [v _OERR OERR `VEb  1 e 0 @193 ]
-"4045
+"4044
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
-"4180
+"4179
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
-"4195
+"4194
 [v _RD3 RD3 `VEb  1 e 0 @67 ]
-"4198
+"4197
 [v _RD4 RD4 `VEb  1 e 0 @68 ]
-"4201
+"4200
 [v _RD5 RD5 `VEb  1 e 0 @69 ]
-"4204
+"4203
 [v _RD6 RD6 `VEb  1 e 0 @70 ]
-"4207
+"4206
 [v _RD7 RD7 `VEb  1 e 0 @71 ]
-"4279
+"4278
 [v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
-"4282
+"4281
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"4456
+"4455
 [v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
-"4459
+"4458
 [v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
-"4462
+"4461
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
-"4465
+"4464
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"4471
+"4470
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
-"4474
+"4473
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
-"4513
+"4512
 [v _TRMT TRMT `VEb  1 e 0 @1217 ]
-<<<<<<< Updated upstream
-"52 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
+"358 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
+"52 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _x x `uc  1 e 1 0 ]
 [v _y y `uc  1 e 1 0 ]
 [v _z z `uc  1 e 1 0 ]
@@ -229,7 +215,7 @@
 {
 "148
 } 0
-"505 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c
+"505 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
@@ -249,86 +235,54 @@
 "550
 [v sprintf@sp sp `*.4uc  1 a 1 11 ]
 "1567
-=======
-"47 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaI2C.c
-[v _x x `uc  1 e 1 0 ]
-"48
-[v _y y `uc  1 e 1 0 ]
-"50
-[v _datos datos `[2]uc  1 e 2 0 ]
-"51
-[v _datos2 datos2 `[2]uc  1 e 2 0 ]
-"56
-[v _main main `(v  1 e 1 0 ]
-{
-"127
 } 0
-"131
-[v _setup setup `(v  1 e 1 0 ]
-{
-"139
->>>>>>> Stashed changes
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwmod@counter counter `uc  1 a 1 13 ]
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
 "5
-[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 7 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 9 ]
 "25
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
 "5
 [v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"152 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
+"152 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-<<<<<<< Updated upstream
 "173
-=======
-"10
-[v ___awmod@sign sign `uc  1 a 1 13 ]
-[v ___awmod@counter counter `uc  1 a 1 12 ]
-"5
-[v ___awmod@divisor divisor `i  1 p 2 8 ]
-[v ___awmod@dividend dividend `i  1 p 2 10 ]
-"34
->>>>>>> Stashed changes
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 6 ]
-[v ___awdiv@counter counter `uc  1 a 1 5 ]
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
 "5
 [v ___awdiv@divisor divisor `i  1 p 2 0 ]
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"98 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
+"98 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
-[v Lcd_Write_String@a a `*.4uc  1 a 1 wreg ]
 "99
-[v Lcd_Write_String@i i `i  1 a 2 6 ]
+[v Lcd_Write_String@i i `i  1 a 2 10 ]
 "98
-[v Lcd_Write_String@a a `*.4uc  1 a 1 wreg ]
-"100
-[v Lcd_Write_String@a a `*.4uc  1 a 1 8 ]
+[v Lcd_Write_String@a a `*.26uc  1 p 2 5 ]
 "102
 } 0
 "83
@@ -385,11 +339,7 @@
 [v Lcd_Port@a a `uc  1 a 1 0 ]
 "33
 } 0
-<<<<<<< Updated upstream
-"65 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
-=======
 "65 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
->>>>>>> Stashed changes
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 {
 [v I2C_Master_Write@d d `ui  1 p 2 0 ]
@@ -405,14 +355,11 @@
 {
 "43
 } 0
-<<<<<<< Updated upstream
 "47
 [v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
 {
 "51
 } 0
-=======
->>>>>>> Stashed changes
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
 {
@@ -427,14 +374,13 @@
 {
 "35
 } 0
-<<<<<<< Updated upstream
-"62 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
+"62 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 {
 [v I2C_Init@i2c_clk_freq i2c_clk_freq `ul  1 p 4 0 ]
 "68
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\__lldiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
@@ -446,5 +392,3 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "30
 } 0
-=======
->>>>>>> Stashed changes

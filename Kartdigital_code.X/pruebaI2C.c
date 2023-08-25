@@ -47,14 +47,14 @@ uint8_t dato;
 uint8_t x;
 uint8_t y;
 uint8_t z = 2;
-<<<<<<< Updated upstream
+
 char s[3];
 char datos;
-=======
+
  char datos[2];
  char datos2[2];
  char mot;
->>>>>>> Stashed changes
+
 //*****************************************************************************
 // Main
 //*****************************************************************************
@@ -90,35 +90,8 @@ void main(void) {
         I2C_Master_Write(0x24);
         I2C_Master_Write('r');
         I2C_Master_Stop();
-<<<<<<< Updated upstream
-        __delay_ms(200);
-       */
-       I2C_Master_Start();
-       I2C_Master_Write(0x25);
-       datos = I2C_Master_Read(0);
-       I2C_Master_Stop();
-        __delay_ms(200);
-        /*
-        if (dato == 1){
-            PORTD = 255;
-        }
-       if (dato == 0){
-            PORTD = 0;
-        }
-         */
-      //  int x = 11;
-        //sprintf(s, "%u", x);
-         //datos[6]  = x   / 10 + '0';
-       // datos[7]  = x   % 10 + '0';
-       // datos[8] = x   / 10 + '0';
-       // datos[6] = s;
-        Lcd_Set_Cursor(1,1);
-    
-    Lcd_Write_String(datos);
-   Lcd_Set_Cursor(2,1);
-    
-    Lcd_Write_String("hola");
-=======
+
+
        __delay_us(800);
         I2C_Master_Start();
         I2C_Master_Write(0x25);
@@ -156,7 +129,7 @@ void main(void) {
     Lcd_Write_String(datos);
     Lcd_Set_Cursor(2,6);
     Lcd_Write_String(datos2);
->>>>>>> Stashed changes
+
     }
   
 }

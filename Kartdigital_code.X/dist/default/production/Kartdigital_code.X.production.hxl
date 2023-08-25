@@ -1,51 +1,32 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
-<<<<<<< Updated upstream
- dist/default/production\Kartdigital_code.X.production.hex
-=======
- C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o
->>>>>>> Stashed changes
+ C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o
  -Odist/default/production\Kartdigital_code.X.production.hex
  -logfile=dist/default/production\Kartdigital_code.X.production.hxl
  -addressing=2
 
 ### Memory Usage ###
-<<<<<<< Updated upstream
- Intel Hex-file ranges:
-  0h - 65h		(dist/default/production\Kartdigital_code.X.production.hex)
-  372h - FFFh		(dist/default/production\Kartdigital_code.X.production.hex)
-  4000h - 4007h		(dist/default/production\Kartdigital_code.X.production.hex)
-  400Eh - 4011h		(dist/default/production\Kartdigital_code.X.production.hex)
+ Input file ranges:
+  0h - 65h		(C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o)
+  372h - FFFh		(C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o)
+  4000h - 4007h		(C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o)
+  400Eh - 4011h		(C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o)
  Unused ranges:
   66h - 371h
-=======
- Input file ranges:
-  0h - 2Fh		(C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o)
-  6E8h - FFFh		(C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o)
-  4000h - 4007h		(C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o)
-  400Eh - 4011h		(C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o)
- Unused ranges:
-  30h - 6E7h
->>>>>>> Stashed changes
   1000h - 3FFFh
   4008h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-<<<<<<< Updated upstream
-  H1 = Intel Hex-file         (dist/default/production\Kartdigital_code.X.production.hex)
-=======
-  H1 = Input file             (C:\Users\diego\AppData\Local\Temp\xcAsncg.\driver_tmp_3.o)
->>>>>>> Stashed changes
+  H1 = Input file             (C:\Users\diego\AppData\Local\Temp\xcAsg3o.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-<<<<<<< Updated upstream
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -107,10 +88,6 @@
 000006C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000006D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000006E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-=======
-----------------------------------------------------------
-000006E0 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
->>>>>>> Stashed changes
 000006F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000700 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000710 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
