@@ -164,12 +164,7 @@ void main (void)
        }
          CCPR1L = (valservo>>1)+128; 
        //--------------------------------
-       char s[20];
-       char s2[20];
-       char s3[20];
-        sprintf(s, "%u", rpm);
-        sprintf(s2, "%u", a);
-        sprintf(s3, "%u", b);
+     
   
        
        

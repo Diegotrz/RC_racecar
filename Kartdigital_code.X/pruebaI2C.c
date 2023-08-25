@@ -44,26 +44,53 @@
 //*****************************************************************************
 void setup(void);
 uint8_t dato;
-int x = 100;
-uint8_t y = 94;
+uint8_t x;
+uint8_t y;
 uint8_t z = 2;
+<<<<<<< Updated upstream
 char s[3];
 char datos;
+=======
+ char datos[2];
+ char datos2[2];
+ char mot;
+>>>>>>> Stashed changes
 //*****************************************************************************
 // Main
 //*****************************************************************************
 void main(void) {
     setup();
-    Lcd_Init();
+   Lcd_Init();
     I2C_Master_Init(100000);
     
     
     while(1){
         /*
+         I2C_Master_Start();
+        I2C_Master_Write(0x24);
+        I2C_Master_Write('r');
+       I2C_Master_RepeatedStart();
+       I2C_Master_Write(0x24);
+       I2C_Master_RepeatedStart();
+        I2C_Master_Write(0x25);
+        x = I2C_Master_Read(0);
+        I2C_Master_RepeatedStart();
+         I2C_Master_Write(0x24);
+        I2C_Master_Write('l');
+       I2C_Master_RepeatedStart();
+       I2C_Master_Write(0x24);
+       I2C_Master_RepeatedStart();
+        I2C_Master_Write(0x25);
+        y = I2C_Master_Read(0);
+         I2C_Master_Stop();
+       */
+        
+        //----------Funcional---------
         I2C_Master_Start();
         I2C_Master_Write(0x24);
-        I2C_Master_Write(PORTB);
+        I2C_Master_Write('r');
         I2C_Master_Stop();
+<<<<<<< Updated upstream
         __delay_ms(200);
        */
        I2C_Master_Start();
@@ -91,6 +118,45 @@ void main(void) {
    Lcd_Set_Cursor(2,1);
     
     Lcd_Write_String("hola");
+=======
+       __delay_us(800);
+        I2C_Master_Start();
+        I2C_Master_Write(0x25);
+        x = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_us(800);
+       
+         I2C_Master_Start();
+        I2C_Master_Write(0x24);
+        I2C_Master_Write('l');
+        I2C_Master_Stop();
+        __delay_us(800);
+        I2C_Master_Start();
+        I2C_Master_Write(0x25);
+        y = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_us(800);
+        
+        
+        
+        
+        datos[0]= (x/100) + '0';
+      datos[1]= (x/10) % 10 + '0';
+      datos[2]= (x%10) + '0';
+      
+     datos2[0]= (y/100) + '0';
+      datos2[1]= (y/10) % 10 + '0';
+     datos2[2]= (y%10) + '0';
+         __delay_us(400);
+        
+     
+      
+     
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String(datos);
+    Lcd_Set_Cursor(2,6);
+    Lcd_Write_String(datos2);
+>>>>>>> Stashed changes
     }
   
 }

@@ -25,15 +25,22 @@
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "39
 [v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+<<<<<<< Updated upstream
 "47
 [v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
+=======
+>>>>>>> Stashed changes
 "55
 [v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
 "65
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
+<<<<<<< Updated upstream
 "13 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
+=======
+"13 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
+>>>>>>> Stashed changes
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 "35
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
@@ -47,11 +54,17 @@
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 "98
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+<<<<<<< Updated upstream
 "62 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 "75
 [v _main main `(v  1 e 1 0 ]
 "152
+=======
+"56 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaI2C.c
+[v _main main `(v  1 e 1 0 ]
+"131
+>>>>>>> Stashed changes
 [v _setup setup `(v  1 e 1 0 ]
 "59 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\USARTmodl.c
 [v _UART_PutC UART_PutC `(v  1 e 1 0 ]
@@ -193,6 +206,7 @@
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
 "4513
 [v _TRMT TRMT `VEb  1 e 0 @1217 ]
+<<<<<<< Updated upstream
 "52 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _x x `uc  1 e 1 0 ]
 [v _y y `uc  1 e 1 0 ]
@@ -235,6 +249,25 @@
 "550
 [v sprintf@sp sp `*.4uc  1 a 1 11 ]
 "1567
+=======
+"47 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaI2C.c
+[v _x x `uc  1 e 1 0 ]
+"48
+[v _y y `uc  1 e 1 0 ]
+"50
+[v _datos datos `[2]uc  1 e 2 0 ]
+"51
+[v _datos2 datos2 `[2]uc  1 e 2 0 ]
+"56
+[v _main main `(v  1 e 1 0 ]
+{
+"127
+} 0
+"131
+[v _setup setup `(v  1 e 1 0 ]
+{
+"139
+>>>>>>> Stashed changes
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -261,7 +294,17 @@
 "152 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _setup setup `(v  1 e 1 0 ]
 {
+<<<<<<< Updated upstream
 "173
+=======
+"10
+[v ___awmod@sign sign `uc  1 a 1 13 ]
+[v ___awmod@counter counter `uc  1 a 1 12 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 8 ]
+[v ___awmod@dividend dividend `i  1 p 2 10 ]
+"34
+>>>>>>> Stashed changes
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -279,10 +322,13 @@
 "98 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\LCD.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
+[v Lcd_Write_String@a a `*.4uc  1 a 1 wreg ]
 "99
-[v Lcd_Write_String@i i `i  1 a 2 10 ]
+[v Lcd_Write_String@i i `i  1 a 2 6 ]
 "98
-[v Lcd_Write_String@a a `*.26uc  1 p 2 5 ]
+[v Lcd_Write_String@a a `*.4uc  1 a 1 wreg ]
+"100
+[v Lcd_Write_String@a a `*.4uc  1 a 1 8 ]
 "102
 } 0
 "83
@@ -339,7 +385,11 @@
 [v Lcd_Port@a a `uc  1 a 1 0 ]
 "33
 } 0
+<<<<<<< Updated upstream
 "65 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
+=======
+"65 C:\Users\diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\I2C.c
+>>>>>>> Stashed changes
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 {
 [v I2C_Master_Write@d d `ui  1 p 2 0 ]
@@ -355,11 +405,14 @@
 {
 "43
 } 0
+<<<<<<< Updated upstream
 "47
 [v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
 {
 "51
 } 0
+=======
+>>>>>>> Stashed changes
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
 {
@@ -374,6 +427,7 @@
 {
 "35
 } 0
+<<<<<<< Updated upstream
 "62 C:\Users\Diego\Documents\GitHub\RC_racecar\Kartdigital_code.X\pruebaADXL345.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 {
@@ -392,3 +446,5 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "30
 } 0
+=======
+>>>>>>> Stashed changes

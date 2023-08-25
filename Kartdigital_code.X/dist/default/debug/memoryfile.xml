@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Kartdigital_code.X.production.hex">
+  <executable name="dist/default/debug\Kartdigital_code.X.debug.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>
-<<<<<<< Updated upstream
-      <used>1658</used>
-      <free>6534</free>
-=======
       <used>1188</used>
       <free>7004</free>
->>>>>>> Stashed changes
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>368</length>
-<<<<<<< Updated upstream
-      <used>103</used>
-      <free>265</free>
-=======
       <used>35</used>
       <free>333</free>
->>>>>>> Stashed changes
     </memory>
   </executable>
 </project>

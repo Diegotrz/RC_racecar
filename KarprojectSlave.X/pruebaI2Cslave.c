@@ -45,6 +45,8 @@ uint8_t state;
 int x = 10;
 uint8_t y = 94;
 uint8_t z = 2;
+char prob;
+uint8_t val ;
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -73,14 +75,23 @@ void __interrupt() isr(void){
             PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            prob = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+<<<<<<< Updated upstream
             
+=======
+              if (prob == 'r'){
+            val = 20;
+        }
+         if (prob == 'l'){
+            val = 5;
+        }
+>>>>>>> Stashed changes
             z = SSPBUF;
             BF = 0;
-            SSPBUF = lec;
+            SSPBUF = val;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -99,12 +110,30 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
+<<<<<<< Updated upstream
        
       
      //int x= 10;
        // lec[1]  = x   / 10 + '0';
         //lec[2]  = x   % 10 + '0';
         lec[1]= "uno";
+=======
+        /*
+       int x= 10;
+        lec[6]  = x   / 10 + '0';
+        lec[7]  = x   % 10 + '0';
+       // lec[0] = x;
+     //   lec[4] = y;
+       // lec[8] = z;
+        Lcd_Set_Cursor(1,1);
+    Lcd_Write_String (lec);
+         * */
+        //prob = 'r';
+       // __delay_us(10);
+      //  prob = 'l';
+       
+        __delay_us(10);
+>>>>>>> Stashed changes
     }
     
 }

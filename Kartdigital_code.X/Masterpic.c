@@ -66,20 +66,29 @@ void main(void)
  char text[9];
   while(1)
   {
-      RPMR = 100;
+      RPMR = 20;
       RPML= 50;
       aceleracX= 24;
        
       
        
+      uint8_t fm = (RPMR/1000);
+      //datos[0]= fm + '0';
+    //  datos[0]= (RPMR/100)%10 + '0';
+     // datos[1]= (RPMR/10)%10 + '0';
       
-          
-      datos[0]= RPMR;
-      datos[4]= RPML;
-      datos[8]= aceleracX;
+      //Funcional solo con centenas
+      datos[0]= (RPMR/100) + '0';
+      datos[1]= (RPMR/10) % 10 + '0';
+      datos[2]= (RPMR%10) + '0';
+    
+     // datos[4]= RPML;
+    //  datos[8]= aceleracX;
       UART_Print ("\r\n");
            // sprintf(text, "%03u\r\n", RPMR);
              UART_Print(datos);
+             UART_Print ("\r\n");
+            
              __delay_ms(700);
       //Enviar datos al terminal
     if ( UART_Data_Ready() )  // if a character available
