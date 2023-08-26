@@ -2868,12 +2868,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 
 
-              if (prob == 'r'){
-            val = 20;
-        }
-         if (prob == 'l'){
-            val = 5;
-        }
+
 
             z = SSPBUF;
             BF = 0;
@@ -2896,14 +2891,13 @@ void main(void) {
 
 
     while(1){
-
-
-
-
-
-
-        lec[1]= "uno";
-# 134 "pruebaI2Cslave.c"
+# 128 "pruebaI2Cslave.c"
+       if (prob == 'r'){
+            val = 20;
+        }
+         if (prob == 'l'){
+            val = 5;
+        }
         _delay((unsigned long)((10)*(8000000/4000000.0)));
 
     }

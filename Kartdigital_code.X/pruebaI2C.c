@@ -49,9 +49,8 @@ uint8_t y;
 uint8_t z = 2;
 
 char s[3];
-char datos;
+char datos[2];
 
- char datos[2];
  char datos2[2];
  char mot;
 
@@ -89,10 +88,12 @@ void main(void) {
         I2C_Master_Start();
         I2C_Master_Write(0x24);
         I2C_Master_Write('r');
+        
         I2C_Master_Stop();
 
 
        __delay_us(800);
+      
         I2C_Master_Start();
         I2C_Master_Write(0x25);
         x = I2C_Master_Read(0);
@@ -104,19 +105,20 @@ void main(void) {
         I2C_Master_Write('l');
         I2C_Master_Stop();
         __delay_us(800);
+        /*
         I2C_Master_Start();
         I2C_Master_Write(0x25);
         y = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_us(800);
-        
+        */
         
         
         
         datos[0]= (x/100) + '0';
       datos[1]= (x/10) % 10 + '0';
       datos[2]= (x%10) + '0';
-      
+       __delay_us(400);
      datos2[0]= (y/100) + '0';
       datos2[1]= (y/10) % 10 + '0';
      datos2[2]= (y%10) + '0';

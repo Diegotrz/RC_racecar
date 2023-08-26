@@ -27,7 +27,7 @@
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 "59 C:\Users\diego\Documents\GitHub\RC_racecar\KarprojectSlave.X\pruebaI2Cslave.c
 [v _isr isr `II(v  1 e 1 0 ]
-"105
+"100
 [v _main main `(v  1 e 1 0 ]
 "142
 [v _setup setup `(v  1 e 1 0 ]
@@ -238,15 +238,13 @@
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4464
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"43 C:\Users\diego\Documents\GitHub\RC_racecar\KarprojectSlave.X\pruebaI2Cslave.c
-[v _lec lec `[1]uc  1 e 1 0 ]
-"47
+"47 C:\Users\diego\Documents\GitHub\RC_racecar\KarprojectSlave.X\pruebaI2Cslave.c
 [v _z z `uc  1 e 1 0 ]
 "48
 [v _prob prob `uc  1 e 1 0 ]
 "49
 [v _val val `uc  1 e 1 0 ]
-"105
+"100
 [v _main main `(v  1 e 1 0 ]
 {
 "138
@@ -268,5 +266,5 @@
 "59 C:\Users\diego\Documents\GitHub\RC_racecar\KarprojectSlave.X\pruebaI2Cslave.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"101
+"96
 } 0

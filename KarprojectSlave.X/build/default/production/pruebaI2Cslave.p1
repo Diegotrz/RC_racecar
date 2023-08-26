@@ -458,95 +458,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 142 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 147  ]
 {
-"84
-[; ;pruebaI2Cslave.c: 84:               if (prob == 'r'){
-[e $ ! == -> _prob `ui -> 114 `ui 148  ]
-{
-"85
-[; ;pruebaI2Cslave.c: 85:             val = 20;
-[e = _val -> -> 20 `i `uc ]
 "86
-[; ;pruebaI2Cslave.c: 86:         }
-}
-[e :U 148 ]
-"87
-[; ;pruebaI2Cslave.c: 87:          if (prob == 'l'){
-[e $ ! == -> _prob `ui -> 108 `ui 149  ]
-{
-"88
-[; ;pruebaI2Cslave.c: 88:             val = 5;
-[e = _val -> -> 5 `i `uc ]
-"89
-[; ;pruebaI2Cslave.c: 89:         }
-}
-[e :U 149 ]
-"91
-[; ;pruebaI2Cslave.c: 91:             z = SSPBUF;
+[; ;pruebaI2Cslave.c: 86:             z = SSPBUF;
 [e = _z _SSPBUF ]
-"92
-[; ;pruebaI2Cslave.c: 92:             BF = 0;
+"87
+[; ;pruebaI2Cslave.c: 87:             BF = 0;
 [e = _BF -> -> 0 `i `b ]
-"93
-[; ;pruebaI2Cslave.c: 93:             SSPBUF = val;
+"88
+[; ;pruebaI2Cslave.c: 88:             SSPBUF = val;
 [e = _SSPBUF _val ]
-"94
-[; ;pruebaI2Cslave.c: 94:             SSPCONbits.CKP = 1;
+"89
+[; ;pruebaI2Cslave.c: 89:             SSPCONbits.CKP = 1;
 [e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
-"95
-[; ;pruebaI2Cslave.c: 95:             _delay((unsigned long)((250)*(8000000/4000000.0)));
+"90
+[; ;pruebaI2Cslave.c: 90:             _delay((unsigned long)((250)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"96
-[; ;pruebaI2Cslave.c: 96:             while(SSPSTATbits.BF);
-[e $U 150  ]
-[e :U 151 ]
+"91
+[; ;pruebaI2Cslave.c: 91:             while(SSPSTATbits.BF);
+[e $U 148  ]
+[e :U 149 ]
+[e :U 148 ]
+[e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 149  ]
 [e :U 150 ]
-[e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 151  ]
-[e :U 152 ]
-"97
-[; ;pruebaI2Cslave.c: 97:         }
+"92
+[; ;pruebaI2Cslave.c: 92:         }
 }
 [e :U 147 ]
 [e :U 146 ]
-"99
-[; ;pruebaI2Cslave.c: 99:         PIR1bits.SSPIF = 0;
+"94
+[; ;pruebaI2Cslave.c: 94:         PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"100
-[; ;pruebaI2Cslave.c: 100:     }
+"95
+[; ;pruebaI2Cslave.c: 95:     }
 }
 [e :U 140 ]
-"101
-[; ;pruebaI2Cslave.c: 101: }
+"96
+[; ;pruebaI2Cslave.c: 96: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"105
-[; ;pruebaI2Cslave.c: 105: void main(void) {
+"100
+[; ;pruebaI2Cslave.c: 100: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"106
-[; ;pruebaI2Cslave.c: 106:     setup();
+"101
+[; ;pruebaI2Cslave.c: 101:     setup();
 [e ( _setup ..  ]
-"111
-[; ;pruebaI2Cslave.c: 111:     while(1){
-[e :U 155 ]
+"106
+[; ;pruebaI2Cslave.c: 106:     while(1){
+[e :U 153 ]
 {
-"118
-[; ;pruebaI2Cslave.c: 118:         lec[1]= "uno";
-[e = *U + &U _lec * -> -> -> 1 `i `ui `ux -> -> # *U &U _lec `ui `ux -> :s 1C `uc ]
+"128
+[; ;pruebaI2Cslave.c: 128:        if (prob == 'r'){
+[e $ ! == -> _prob `ui -> 114 `ui 155  ]
+{
+"129
+[; ;pruebaI2Cslave.c: 129:             val = 20;
+[e = _val -> -> 20 `i `uc ]
+"130
+[; ;pruebaI2Cslave.c: 130:         }
+}
+[e :U 155 ]
+"131
+[; ;pruebaI2Cslave.c: 131:          if (prob == 'l'){
+[e $ ! == -> _prob `ui -> 108 `ui 156  ]
+{
+"132
+[; ;pruebaI2Cslave.c: 132:             val = 5;
+[e = _val -> -> 5 `i `uc ]
+"133
+[; ;pruebaI2Cslave.c: 133:         }
+}
+[e :U 156 ]
 "134
 [; ;pruebaI2Cslave.c: 134:         _delay((unsigned long)((10)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "136
 [; ;pruebaI2Cslave.c: 136:     }
 }
+[e :U 152 ]
+[e $U 153  ]
 [e :U 154 ]
-[e $U 155  ]
-[e :U 156 ]
 "138
 [; ;pruebaI2Cslave.c: 138: }
-[e :UE 153 ]
+[e :UE 151 ]
 }
 "142
 [; ;pruebaI2Cslave.c: 142: void setup(void){
@@ -579,4 +576,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;pruebaI2Cslave.c: 152: }
 [e :UE 157 ]
 }
-[a 1C 117 110 111 0 ]

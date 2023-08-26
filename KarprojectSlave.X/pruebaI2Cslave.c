@@ -81,12 +81,7 @@ void __interrupt() isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 
 
-              if (prob == 'r'){
-            val = 20;
-        }
-         if (prob == 'l'){
-            val = 5;
-        }
+              
 
             z = SSPBUF;
             BF = 0;
@@ -115,7 +110,7 @@ void main(void) {
      //int x= 10;
        // lec[1]  = x   / 10 + '0';
         //lec[2]  = x   % 10 + '0';
-        lec[1]= "uno";
+        
 
         /*
        int x= 10;
@@ -130,7 +125,12 @@ void main(void) {
         //prob = 'r';
        // __delay_us(10);
       //  prob = 'l';
-       
+       if (prob == 'r'){
+            val = 20;
+        }
+         if (prob == 'l'){
+            val = 5;
+        }
         __delay_us(10);
 
     }
