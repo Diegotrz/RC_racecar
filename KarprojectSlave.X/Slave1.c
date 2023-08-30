@@ -38,6 +38,7 @@ int i;
 /*
  *Variables
  */
+uint8_t z;
 
 uint8_t a= 0;
 uint8_t b= 0;
@@ -45,6 +46,8 @@ int c= 0;
 int s= 0;
 uint8_t rpm= 0;
 uint8_t valservo= 0;
+uint8_t datasend;
+char prob;
 /*
  * Prototipos de funciones
  */
@@ -95,7 +98,7 @@ void __interrupt() isr (void)
             PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            prob = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
@@ -120,8 +123,8 @@ void main (void)
 {
     setup();
     OSCCON = 0x70;    // set internal oscillator to 8MHz
-     PWM_init (0,0,255);
-    ADCON0bits.GO =1;
+   
+ 
     
   __delay_ms(500);  // wait 2 seconds
  
@@ -156,12 +159,12 @@ void main (void)
                          
         }
       
-       if(s==0){
-           PORTD= 0;
-       }
-       if(s==1){
-           PORTD= 6;
-       }
+       //if(s==0){
+       //    PORTD= 0;
+       //}
+       //if(s==1){
+      //     PORTD= 6;
+       //}
          CCPR1L = (valservo>>1)+128; 
        //--------------------------------
      
@@ -181,7 +184,7 @@ void setup(void){
     ANSEL = 0;
     ANSELH = 0;
     
-    TRISA = 0xFF;
+    TRISA = 0;
     TRISB = 0b11111111;
     TRISD = 0;
     OPTION_REGbits.nRBPU =  0;
