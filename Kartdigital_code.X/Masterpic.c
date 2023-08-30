@@ -155,7 +155,7 @@ void main(void)
         minute = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
-       
+       RTC_display();
       //uint8_t fm = (RPMR/1000);
       //datos[0]= fm + '0';
     //  datos[0]= (RPMR/100)%10 + '0';
@@ -168,7 +168,7 @@ void main(void)
     
      // datos[4]= RPML;
     //  datos[8]= aceleracX;
-      RTC_display();
+      
       UART_Print ("\r\n");
            // sprintf(text, "%03u\r\n", RPMR);
              UART_Print(datos);
