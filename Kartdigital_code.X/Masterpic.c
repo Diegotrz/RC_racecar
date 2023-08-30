@@ -23,20 +23,64 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 #include <xc.h>
-#include <stdint.h>}
+#include <stdint.h>
+#include "I2C.h"
 #include <stdio.h>         // for sprintf
 #include "USARTmodl.h"
 #define _XTAL_FREQ 8000000
 #include <string.h>
+#include "LCD.h"
 char datos[20];
 uint8_t RPMR, RPML,aceleracX;
+uint8_t  i, second, minute, hour, m_day, month, year;
 /********************** end UART functions **************************/
 void __interrupt() isr (void)
 {
     NOP();
 }
 void setup(void);
-
+uint8_t bcd_to_decimal(uint8_t number) {
+  return((number >> 4) * 10 + (number & 0x0F));
+}
+ 
+// convert decimal to BCD function
+uint8_t decimal_to_bcd(uint8_t number) {
+  return(((number / 10) << 4) + (number % 10));
+}   
+void RTC_display()
+{
+  static char Time[] = "TIME: 00:00:00";
+  static char Date[] = "DATE: 00/00/2000";
+ 
+  // convert data from BCD format to decimal format
+  second = bcd_to_decimal(second);
+  minute = bcd_to_decimal(minute);
+  hour   = bcd_to_decimal(hour);
+  m_day  = bcd_to_decimal(m_day);
+  month  = bcd_to_decimal(month);
+  year   = bcd_to_decimal(year);
+  // end conversion
+ 
+  // update time
+  Time[6]  = hour   / 10 + '0';
+  Time[7]  = hour   % 10 + '0';
+  Time[9]  = minute / 10 + '0';
+  Time[10] = minute % 10 + '0';
+  Time[12] = second / 10 + '0';
+  Time[13] = second % 10 + '0';
+  // update date
+  Date[6]  = m_day  / 10 + '0';
+  Date[7]  = m_day  % 10 + '0';
+  Date[9]  = month  / 10 + '0';
+  Date[10] = month  % 10 + '0';
+  Date[14] = year   / 10 + '0';
+  Date[15] = year   % 10 + '0';
+  //Lcd_Clear();
+ Lcd_Set_Cursor(1,1);
+  
+  Lcd_Write_String(Time);
+  
+}
 
  char uart_read(){
  if(PIR1bits.RCIF== 0){
@@ -59,20 +103,60 @@ void main(void)
   UART_Init(9600);  // initialize UART module with 9600 baud
  
   __delay_ms(2000);  // wait 2 seconds
- 
+  minute = decimal_to_bcd(0);
+    second = decimal_to_bcd(0);
+    I2C_Master_Start();
+        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x01);    
+        I2C_Master_Write(minute);   
+        
+        I2C_Master_Stop();
+        __delay_ms(200);
+        I2C_Master_Start();
+        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x00);    
+        I2C_Master_Write(second);   
+        
+        I2C_Master_Stop();
  
  
  
  char text[9];
   while(1)
   {
-      RPMR = 20;
-      RPML= 50;
-      aceleracX= 24;
+      /*
+       I2C_Master_Start();
+        I2C_Master_Write(0x24);
+        I2C_Master_Write('r');
+        I2C_Master_Stop();
+       __delay_us(800);
+        I2C_Master_Start();
+        I2C_Master_Write(0x25);
+        RPMR = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_us(800);
+      */
+        
+        //Código del RTC
+        I2C_Master_Start();
+        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x00);
+        I2C_Master_Stop();
+        
+        I2C_Master_Start();
+        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x00);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xD1);
+        second = I2C_Master_Read(0);
+        I2C_Master_Write(0x01);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0xD1);
+        minute = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(200);
        
-      
-       
-      uint8_t fm = (RPMR/1000);
+      //uint8_t fm = (RPMR/1000);
       //datos[0]= fm + '0';
     //  datos[0]= (RPMR/100)%10 + '0';
      // datos[1]= (RPMR/10)%10 + '0';
@@ -84,6 +168,7 @@ void main(void)
     
      // datos[4]= RPML;
     //  datos[8]= aceleracX;
+      RTC_display();
       UART_Print ("\r\n");
            // sprintf(text, "%03u\r\n", RPMR);
              UART_Print(datos);
@@ -118,5 +203,8 @@ void setup(void){
  
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
+    // Configuración del oscilador
+    OSCCONbits.IRCF =   0b0111; //8MHz
+    OSCCONbits.SCS = 1;
     
 }

@@ -88,7 +88,6 @@ void main(void) {
         I2C_Master_Start();
         I2C_Master_Write(0x24);
         I2C_Master_Write('r');
-        
         I2C_Master_Stop();
 
 
@@ -100,12 +99,13 @@ void main(void) {
         I2C_Master_Stop();
         __delay_us(800);
        
+        /*
          I2C_Master_Start();
         I2C_Master_Write(0x24);
         I2C_Master_Write('l');
         I2C_Master_Stop();
         __delay_us(800);
-        /*
+        
         I2C_Master_Start();
         I2C_Master_Write(0x25);
         y = I2C_Master_Read(0);
@@ -119,10 +119,11 @@ void main(void) {
       datos[1]= (x/10) % 10 + '0';
       datos[2]= (x%10) + '0';
        __delay_us(400);
-     datos2[0]= (y/100) + '0';
-      datos2[1]= (y/10) % 10 + '0';
-     datos2[2]= (y%10) + '0';
-         __delay_us(400);
+       
+   //  datos2[0]= (y/100) + '0';
+      //datos2[1]= (y/10) % 10 + '0';
+    // datos2[2]= (y%10) + '0';
+      //   __delay_us(400);
         
      
       
@@ -130,7 +131,7 @@ void main(void) {
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String(datos);
     Lcd_Set_Cursor(2,6);
-    Lcd_Write_String(datos2);
+    Lcd_Write_String(datos);
 
     }
   

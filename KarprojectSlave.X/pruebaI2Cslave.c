@@ -44,7 +44,7 @@ uint8_t state;
 
 int x = 10;
 uint8_t y = 94;
-uint8_t z = 2;
+
 char prob;
 uint8_t val ;
 //*****************************************************************************
@@ -128,9 +128,11 @@ void main(void) {
        if (prob == 'r'){
             val = 20;
         }
+       /*
          if (prob == 'l'){
             val = 5;
         }
+        * */
         __delay_us(10);
 
     }
